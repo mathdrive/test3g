@@ -1,0 +1,3076 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математичний тест</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+/* Основной стиль вопросов */
+.question {
+
+  background-image: url("https://raw.githubusercontent.com/mathdrive/image/refs/heads/main/InShot_20251227_121929694.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+/* Раскрывающиеся блоки*/
+details {
+
+  background: rgba(255, 255, 255, 0.7);
+
+  border-radius: 8px;
+
+  padding: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+}
+
+summary {
+
+  font-weight: bold;
+
+  font-size: 18px;
+
+}
+
+details[open] {
+
+  background: rgba(255, 255, 255, 0.9);
+
+  transform: scale(1.02);
+
+}
+
+/* Общие настройки */
+
+body {
+
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  color: #0b1c63; /* благородный тёмно-синий */
+
+  background-color: #f6f8ff;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+/* Каждый вопрос */
+
+.question {
+
+  font-weight: bold;
+
+  background-image: url("https://raw.githubusercontent.com/mathdrive/image/refs/heads/main/InShot_20251227_121929694.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  padding: 20px;
+
+  margin: 20px auto;
+
+  width: 90%;
+
+  max-width: 700px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+}
+
+/* Отступы между вариантами ответов */
+
+.options label {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+}
+
+.question ul li {
+
+  margin-bottom: 10px; /* расстояние между вариантами */
+
+  line-height: 1.6;   /* чтобы текст дышал */
+
+}
+
+/* Вопросы 1–20: увеличиваем расстояние между буквой и текстом */
+.question ul li {
+  margin-bottom: 6px !important; /* расстояние между пунктами */
+  line-height: 1.2 !important;    /* чтобы текст "дышал" */
+  display: flex;        /* для гибкого выравнивания */
+  align-items: center;
+}
+
+/* Создаём отступ между буквой и текстом */
+.choice-letter {
+
+  display: inline-block;
+
+  width: 45px;         /* регулирует расстояние между буквой и формулой */
+
+  text-align: right;
+
+  font-weight: bold;
+
+  margin-right: 10px;
+
+}
+
+.question ul li {
+
+  display: flex;
+
+  align-items: center;
+
+}
+/* Кнопка "Перевірити" */
+
+.check-btn {
+
+  background-color: #2b4e9e;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 8px 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  margin-top: 5px;
+
+}
+
+.check-btn:hover {
+
+  background-color: #1f3c7a;
+
+}
+
+/* Поле для открытого ответа */
+
+.open-answer {
+
+  width: 200px;
+
+  padding: 10px;
+
+  border: 2px solid #2b4e9e;
+
+  border-radius: 8px;
+
+  margin-top: 10px;
+
+  font-weight: bold;
+
+  color: #0b1c63;
+
+}
+
+/* Прячем стандартные кружочки */
+
+.answer-buttons input[type="radio"] {
+
+  display: none;
+
+}
+
+/* Стиль кнопок */
+
+.answer-buttons label {
+
+  display: inline-block;
+
+  background-color: #2b4e9e; /* благородный синий */
+
+  color: white;
+
+  padding: 10px 20px;
+
+  margin: 6px;
+
+  border-radius: 10px; /* скруглённые углы */
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  font-size: 16px;
+
+  transition: background-color 0.3s, transform 0.2s;
+
+}
+
+/* Эффект при наведении */
+
+.answer-buttons label:hover {
+
+  background-color: #1f3c7a;
+
+  transform: scale(1.05);
+
+}
+
+/* Когда ответ выбран */
+
+.answer-buttons input[type="radio"]:checked + label {
+
+  background-color: #3a5cdf;
+
+box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
+
+}
+/* Общий контейнер для задания */
+
+.question {
+
+  margin-bottom: 40px;
+
+  color: #0a1a57; /* благородный тёмно-синий */
+
+  font-weight: bold;
+
+}
+
+/* Контейнер для колонок */
+
+.matching {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 12px; /* расстояние между колонками */
+
+  margin-bottom: 12px;
+
+}
+
+/* Левая и правая колонка */
+
+.left-column, .right-column {
+
+  width: 90%; /* чтобы две влезли рядом */
+
+  background-color: rgba(255, 255, 255, 0.55);
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Заголовки в колонках */
+
+.left-column h4, .right-column h4 {
+
+  text-align: center;
+
+  margin-bottom: 10px;
+
+  color: #08205c;
+
+  text-decoration: underline;
+
+}
+
+/* Текст в колонках */
+
+.left-column p, .right-column p {
+
+  margin: 8px 0;
+
+  line-height: 1.5;
+
+}
+.left-column p {
+
+  margin-bottom: 30px; /* расстояние между пунктами */
+
+}
+
+/* Таблица с радиокнопками */
+
+.match-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  text-align: center;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.match-table th,
+
+.match-table td {
+
+  padding: 8px 10px;
+
+  border: 1px solid #d0d0d0;
+
+}
+
+.match-table th {
+
+  background-color: #e9eefc;
+
+  color: #0a1a57;
+
+}
+
+/* Радиокнопки — немного увеличить */
+
+.match-table input[type="radio"] {
+
+  transform: scale(1.2);
+
+  accent-color: #0a1a57; /* благородный синий */
+
+}
+
+/* Только для вопроса 22 — уменьшаем шрифт в левой колонке */
+
+#q22 .left-column p {
+
+  font-size: 0.97em; /* можно подобрать — 0.9em, 0.85em и т.д. */
+
+  line-height: 1.3;
+
+}
+
+.hint {
+
+  font-size: 0.8em;
+
+  color: #0b1c63;
+
+  margin-top: 5px;
+
+}
+
+/* Стартовый экран теста */
+
+.test-start {
+
+  text-align: center;
+
+  max-width: 700px;
+
+  margin: 60px auto;
+
+  padding: 40px 20px;
+
+  background-color: #ffffff;
+
+  border-radius: 20px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+.test-title {
+
+  font-size: 28px;
+
+  font-weight: 600;
+
+  margin-bottom: 15px;
+
+  color: #0b1c63;
+
+}
+
+.test-intro {
+
+  font-size: 10px;
+
+  color: #555;
+
+  margin-bottom: 30px;
+
+}
+
+.start-btn {
+
+  background-color: #2b4e9e;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 12px 30px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+
+.start-btn:hover {
+
+  background-color: #1f3c7a;
+
+  transform: scale(1.05);
+
+}
+
+/* Панель с номерами вопросов */
+
+/* Анимация появления панели навигации */
+
+.question-nav {
+
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+
+}
+
+.question-nav.visible {
+
+  opacity: 1;
+
+}
+
+/* общ. настройки навигации */
+.question-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px; /* расстояние между кружками */
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+/* стиль кружка */
+.question-nav button {
+  width: 28px; /* уменьшили диаметр */
+  height: 28px;
+  border-radius: 50%; /* полностью круглый */
+  border: 2px solid #0b1c63; /* рамка */
+  background-color: #fff; /* фон пропущенных */
+  color: #0b1c63; /* цвет цифры */
+  font-weight: 600;
+  font-size: 14px; /* чуть меньше цифры */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* При наведении — светло-синий фон */
+.question-nav button:hover {
+  background-color: #a0b3e6;
+  color: #0b1c63;
+}
+
+/* Отвеченные вопросы — синий фон, цифра белая */
+.question-nav button.answered:not(.active) {
+  background-color: #0b1c63;
+  color: #fff;
+  border-color: #0b1c63;
+  text-shadow: 0 1px 0 #fff, 0 2px 3px rgba(0,0,0,0.3);
+}
+
+/* Текущий вопрос — только обводка и мягкое свечение */
+
+.question-nav button.active {
+
+  background-color: #fff; /* оставляем белый фон, не закрашиваем цифру */
+
+  color: #0b1c63; /* цвет цифры */
+
+  border: 1px solid #c0c8e0; /* более выразительная рамка */
+
+  box-shadow: 0 0 20px rgba(11,28,99,0.5), 0 0 15px rgba(11,28,99,0.3); /* мягкое свечение */
+
+}
+
+/* При наведении — усиленное свечение, без изменения фона */
+
+.question-nav button:hover {
+
+  background-color: #fff; /* фон не меняется */
+
+  color: #0b1c63;
+
+  box-shadow: 0 0 6px 2px rgba(1,28,99,0.5), 0 0 15px rgba(11,28,99,0.4);
+
+  transform: scale(1.05); /* небольшой эффект увеличения */
+
+}
+
+/* Контейнер навигационных кнопок */
+
+#nav-buttons {
+
+  display: block;
+
+  justify-content: center; /* выравнивание по центру */
+
+  gap: 15px; /* расстояние между кнопками */
+
+  margin: 20px auto;
+
+}
+
+/* Общий стиль кнопок навигации */
+
+#nav-buttons button {
+
+  background-color: #2b4e9e; /* благородный тёмно-синий */
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 15px 28px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+}
+
+/* Подсветка при наведении */
+
+#nav-buttons button:hover {
+
+  background-color: #1f3c7a; /* чуть светлее */
+
+  transform: scale(1.05);
+
+  box-shadow: 0 0 10px rgba(74, 123, 247, 0.4);
+
+}
+
+/* Эффект нажатия */
+
+#nav-buttons button:active {
+
+  transform: scale(0.97);
+
+  box-shadow: none; /* убираем подсветку при нажатии */
+
+}
+
+/* Убираем фокусную обводку/тень для кнопок навигации */
+
+#nav-buttons button:focus,
+
+#nav-buttons button:focus-visible {
+
+  outline: none;
+
+  box-shadow: none;
+
+  background-color: #2b4e9e; /* исходный фон */
+
+  color: #fff;              /* исходный цвет текста */
+
+}
+
+
+/* Навигация: полузакрашенный кружок и полностью закрашенный */
+
+.question-nav button.half {
+
+  background: linear-gradient(to bottom, #0b1c63 50%, #fff 50%);
+
+  color: #fff;
+
+  border-color: #0b1c63;
+  text-shadow: 0 1px 0 #fff, 0 2px 3px rgba(0,0,0,0.3);
+-webkit-text-fill-color: transparent;
+}
+
+.question-nav button.answered {
+
+  background-color: #0b1c63;
+
+  color: #fff;
+
+  border-color: #0b1c63;
+
+}
+
+
+/* Немного плавнее при смене состояний */
+
+.question-nav button {
+
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.2s;
+
+}
+
+/* ==== ФОН ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТОВ ==== */
+
+#results-screen {
+
+  background-image: url("https://raw.githubusercontent.com/mathdrive/image/refs/heads/main/InShot_20251227_121929694.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  
+
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+
+  margin-top: 20px;
+
+}
+
+/*====ЗАГОЛОВОК «ВАШ РЕЗУЛЬТАТ»====*/
+
+#results-screen h2,
+
+.results-title {
+
+  text-align: center;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  color: #0b1c63;
+
+  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+
+  margin-bottom: 20px;
+
+  letter-spacing: 1px;
+
+}
+  
+
+/*==== ПАНЕЛЬ С БАЛЛАМИ — В РАМКЕ ====*/
+
+#results-summary {
+
+  background: rgba(0,0,0,0.0);
+
+  border: 2px solid #0b1c63; /* чтобы рамка точно была видна */
+
+  border-radius: 10px;
+
+  padding: 5px 10px;
+
+  margin-bottom: 20px;
+
+  font-size: 16px;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+  display: inline-block; /* важное дополнение */
+
+}
+  
+  
+/* === Контейнер для кнопок (вопросы 1-20) === */
+
+#results-list {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки на телефоне */
+
+  gap: 10px;
+
+}
+
+@media (min-width: 768px) {
+
+  #results-list {
+
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок на планшете/ПК */
+
+  }
+
+}
+
+/* === Кнопки результата === */
+
+.result-btn {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start; /* текст слева */
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  min-width: 120px;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  text-align: left;
+
+  color: #0b1c63; /* весь текст синий */
+
+  background-color: #fff;
+
+  border: 2px solid #0b1c63; /* рамка по умолчанию синяя */
+
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* лёгкий объём */
+
+  transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+/* === Правильный ответ === */
+
+.result-btn.correct {
+
+  border-color: #2ecc71; /* зелёная рамка */
+
+  box-shadow: inset 0 2px 4px rgba(46, 204, 113, 0.2); /* лёгкий inset */
+
+}
+
+/* === Неправильный ответ === */
+
+.result-btn.wrong {
+
+  border-color: #e74c3c; /* красная рамка */
+
+  box-shadow: inset 0 2px 4px rgba(231, 76, 60, 0.2); /* лёгкий inset */
+
+}
+
+/* === Неправильный ответ — маленький текст "Правильна відповідь:" === */
+
+.result-btn .correct-answer {
+
+  font-size: 10px;
+
+  margin-top: 4px;
+
+  color: #0b1c63; /* синий текст */
+
+}
+
+/* === Строки внутри кнопки === */
+
+.result-btn .question-title, 
+
+.result-btn .user-answer {
+
+  font-size: 14px;
+
+  margin-bottom: 2px;
+
+  color: #0b1c63; /* синий текст */
+
+}
+
+.result-btn .user-answer-label,
+
+.result-btn .correct-answer-label {
+
+  color: #0b1c63;
+
+  font-weight: bold;
+
+  margin-top: 4px;
+
+}
+
+.result-btn .user-answer-values,
+
+.result-btn .correct-answer-values {
+
+  color: #0b1c63;
+
+  margin-left: 8px;
+
+  margin-bottom: 4px;
+
+}
+
+/* Подсветка отдельных вариантов */
+
+.answer.correct-answer-bg {
+
+  background-color: #2ecc71;
+
+  color: #fff;
+
+  padding: 2px 6px;
+
+  border-radius: 4px;
+
+  margin-right: 2px;
+
+}
+
+.answer.wrong-answer-bg {
+
+  background-color: #e74c3c;
+
+  color: #fff;
+
+  padding: 2px 6px;
+
+  border-radius: 4px;
+
+  margin-right: 2px;
+
+}
+.result-btn .user-answer-values {
+
+  font-size: 12px; /* меньше, чем заголовки */
+
+  margin-left: 8px;
+
+  margin-bottom: 4px;
+
+}
+@media (max-width: 480px) {
+
+  .result-btn .user-answer-values {
+
+    font-size: 12px;
+
+  }
+
+}
+/* Размер текста для правильных ответов */
+
+.result-btn .correct-answer-values {
+
+  font-size: 14px; /* меньше, чем заголовки */
+
+  margin-left: 8px;
+
+  margin-bottom: 4px;
+
+}
+
+/* Адаптация для маленьких экранов */
+
+@media (max-width: 480px) {
+
+  .result-btn .correct-answer-values {
+
+    font-size: 12px;
+
+  }
+
+}
+#question-nav button.correct {
+
+  background: #4CAF50;
+
+  color: #fff;
+
+}
+
+#question-nav button.wrong {
+
+  background: #E53935;
+
+  color: #fff;
+
+}
+
+#question-nav button.half {
+
+  background: linear-gradient(90deg, #4CAF50 50%, #E53935 50%);
+
+  color: #fff;
+
+}
+
+/*нижние кнопки*/
+.results-buttons {
+
+  display: flex;
+
+  justify-content: center; /* по центру */
+
+  gap: 20px; /* расстояние между кнопками */
+
+  margin-top: 16px;
+
+}
+
+.results-buttons button {
+
+  background-color: #2b4e9e;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 8px 14px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+  
+  font-size: 10px; /* размер шрифта */
+}
+
+.results-buttons button:hover {
+
+  background-color: #1f3c7a;
+
+}
+
+/* ДОПОЛНЕНИЕ для кнопки Зааершити тест*/
+
+#finish-test {
+
+  display: block;
+
+  margin: 20px auto;
+
+  width: fit-content; /* чтобы кнопка не растягивалась */
+
+}
+
+/* Для завдання 22 
+#q22 .matching {
+  display: flex;
+}
+
+#q22 .left-column {
+  width: 50px;   /* можна змінити на потрібне значення */
+  /*flex-shrink: 0;  щоб колонка не розтягувалась 
+}
+
+/*#q22 .right-column {
+  flex: 1;        /* права колонка займає решту простору */
+  /*padding-left: 20px;
+}
+#q22 .small-text {
+  font-size: 12px;   /* або 12px, залежно від бажаного розміру */
+  /*line-height: 1.4;   робить текст читабельним 
+}*/
+
+
+/* Для завдання 23 */
+#q23 .matching {
+  display: flex;
+}
+#q23 .left-column
+{
+  width: 120px;   /* можна змінити на потрібне значення */
+  flex-shrink: 0; /* щоб колонка не розтягувалась */
+}
+
+#q23 .right-column
+{
+  flex: 1;        /* права колонка займає решту простору */
+  padding-left: 20px;
+}
+#q23 .small-text {
+  font-size: 14px;   /* або 12px, залежно від бажаного розміру */
+  line-height: 1.4;  /* робить текст читабельним */
+}
+
+}
+}
+</style>
+</head>
+<body>
+<html lang="ua">
+
+<head>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Тест 3. Прямокутні трикутники</title>
+
+<script id="MathJax-script" async
+
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+
+</head>
+
+<body>
+
+<!-- Стартовый экран теста -->
+<div id="start-screen" class="card test-start">
+  <div class="card-content">
+    <h2 class="test-title">Тест 3. Прямокутні трикутники</h2>
+    <p class="test-intro">Натисніть на кнопку нижче, щоб розпочати тестування.</p>
+    <button id="start-button" class="btn start-btn">Розпочати тест</button>
+  </div>
+</div>
+  
+<!-- Панель навигации по вопросам -->
+<div id="question-nav" class="question-nav" style="display: none;"></div>
+  
+  <!-- Форма для вопросов -->
+
+  <form id="mathTest">
+
+    <!-- Завдання 1 -->
+<div class="question" id="q1" data-correct="Г"> 
+    <div style="display: flex; align-items: flex-start; gap: 2px; margin-bottom: 6px;"> 
+      <div style="flex: 1;"> 
+        <p>1. Тарас встановлює холодильник висотою \(h\) і глибиною \(t = 80\) см. Його кухня має висоту стелі \(H = 2,5\) м.
+Яку максимальну висоту \(h\) може мати холодильник, щоб під час підйому (встановлення) він не пробив дірку в кухонній стелі?</p> 
+      </div> 
+      <div style="flex: 0 0 auto; margin-left: auto;"> 
+        <img src="https://i.postimg.cc/Xv6vG7Ng/IMG-20251226-084517-958.png" 
+             alt="Геометрична задача: 1" style="max-width: 100%; height: auto; width: 195px; display: flex;" > 
+      </div> 
+    </div>
+
+  <!-- Варианты ответа -->
+
+    <ul>
+  <li><span class="choice-letter">А.&nbsp;&nbsp;</span> \(2,5\)&nbsp;  м</li>
+  <li><span class="choice-letter">Б.&nbsp;&nbsp;</span> \(2,45\) &nbsp;м</li>
+  <li><span class="choice-letter">В.&nbsp;&nbsp;</span> \(2,4\) &nbsp;м</li>
+  <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span>\(2,35\) &nbsp;м</li>
+  <li><span class="choice-letter">Д.&nbsp;&nbsp;</span> \(2,3\) &nbsp;м</li>
+</ul>
+  
+  <!-- Радио-кнопки для выбора правильного варианта -->
+   <div class="answer-buttons">
+
+     <input type="radio" name="q1" value="А" id="q1a">
+
+<label for="q1a" class="square-btn">А</label>
+  
+  <input type="radio" name="q1" value="Б" id="q1b">
+
+<label for="q1b" class="square-btn">Б</label>
+  
+  <input type="radio" name="q1" value="В" id="q1c">
+
+<label for="q1c" class="square-btn">В</label>
+  
+  <input type="radio" name="q1" value="Г" id="q1d">
+
+<label for="q1d" class="square-btn">Г</label>
+  
+  <input type="radio" name="q1" value="Д" id="q1e">
+
+<label for="q1e" class="square-btn">Д</label>
+  
+         </div>
+</div>
+  <!-- Задание 2-->
+
+<div class="question" id="q2" data-correct="А">
+
+  <p>2. Катет прямокутного трикутника дорівнює \(6\) см, а його проекція на гіпотенузу на \(2\) см меньше за цей катет. Вкажіть гіпотенузу цього трикутника.</p>
+
+  <!-- Варианты ответа -->
+
+  
+<ul class="choices">
+
+  <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;\(9\) см</span></li>
+
+  <li> <span class="choice-letter">Б.</span><span class="choice-text"> &nbsp;&nbsp;\(10\) см</span></li>
+
+  <li><span class="choice-letter">В.</span><span class="choice-text"> &nbsp;&nbsp;\(8\) см</span></li>
+
+  <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text"> &nbsp;&nbsp;\(12\) см</span></li>
+
+  <li><span class="choice-letter">Д.</span><span class="choice-text"> &nbsp;&nbsp;\(15\) см</span></li>
+
+</ul>
+    
+  
+    <!-- Радио-кнопки для выбора правильного варианта -->
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q2" value="А" id="q2a">
+
+    <label for="q2a" class="square-btn">А</label>
+
+    <input type="radio" name="q2" value="Б" id="q2b">
+
+    <label for="q2b" class="square-btn">Б</label>
+
+    <input type="radio" name="q2" value="В" id="q2c">
+
+    <label for="q2c" class="square-btn">В</label>
+
+    <input type="radio" name="q2" value="Г" id="q2d">
+
+    <label for="q2d" class="square-btn">Г</label>
+
+    <input type="radio" name="q2" value="Д" id="q2e">
+
+    <label for="q2e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+<!-- Задание 3-->
+
+<div class="question" id="q3" data-correct="В"> 
+    <div style="display: flex; align-items: flex-start; gap: 2px; margin-bottom: 6px;"> 
+      <div style="flex: 1;"> 
+        <p>3. На рисунку зображено схематичний поперечний переріз верхньої металевої частини молотка з основними розмірними лініями.
+Використовуючи наведені геометричні параметри \(h\), \(z\), \(b\) та \(g\), вкажіть формулу для обчислення довжини бічної сторони \(x\) загостреної частини молотка.</p> 
+      </div> 
+      <div style="flex: 0 0 auto; margin-left: auto;"> 
+        <img src="https://i.postimg.cc/x1Jwrv2F/IMG-20251226-090547-876.png" 
+             alt="Геометрична задача: 3" style="max-width: 120%; height: auto; width: 195px; display: flex;" > 
+      </div> 
+    </div>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(\sqrt{(z-(b+g))^2+(\frac{h}{4})^2}\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;\((z-(b+g))^2+(\frac{h}{2})^2\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text"> \(\sqrt{(z-(b+g))^2+(\frac{h}{2})^2}\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(\sqrt{(z+(b+g))^2+(\frac{h}{2})^2}\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;\((z-(b+g))^2+(\frac{h^2}{4})\)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q3" value="А" id="q3a">
+
+    <label for="q3a" class="square-btn">А</label>
+
+    <input type="radio" name="q3" value="Б" id="q3b">
+
+    <label for="q3b" class="square-btn">Б</label>
+
+    <input type="radio" name="q3" value="В" id="q3c">
+
+    <label for="q3c" class="square-btn">В</label>
+
+    <input type="radio" name="q3" value="Г" id="q3d">
+
+    <label for="q3d" class="square-btn">Г</label>
+
+    <input type="radio" name="q3" value="Д" id="q3e">
+
+    <label for="q3e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 4-->
+
+<div class="question" id="q4" data-correct="В">
+
+  <p>4. Визначте різницю катетів прямокутного трикутника, висота якого ділить гіпотенузу на відрізки, один з яких на \(3\) см менший від цієї висоти, а другий на \(4\) см більший за висоту.</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text"> \(12\) см</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(10\) см</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text"> \(5\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text"> \(25\) см</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text"> \(15\) см</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q4" value="А" id="q4a">
+
+    <label for="q4a" class="square-btn">А</label>
+
+    <input type="radio" name="q4" value="Б" id="q4b">
+
+    <label for="q4b" class="square-btn">Б</label>
+
+    <input type="radio" name="q4" value="" id="q4c">
+
+    <label for="q4c" class="square-btn">В</label>
+
+    <input type="radio" name="q4" value="Г" id="q4d">
+
+    <label for="q4d" class="square-btn">Г</label>
+
+    <input type="radio" name="q4" value="Д" id="q4e">
+
+    <label for="q4e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  <!-- Задание 5-->
+
+  <div class="question" id="q5" data-correct="Д"> 
+    <div style="display: flex; align-items: flex-start; gap: 2px; margin-bottom: 6px;"> 
+      <div style="flex: 1;"> 
+        <p>5. Знайдіть довжину невідомого відрізка \(𝑎\) на рисунку.</p> 
+      </div> 
+      <div style="flex: 0 0 auto; margin-left: auto;"> 
+        <img src="https://i.postimg.cc/KcdTmFSB/IMG-20251226-093129-751.png" 
+             alt="Геометрична задача: 3" style="max-width: 120%; height: auto; width: 195px; display: flex;" > 
+      </div> 
+    </div>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(2\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(\sqrt5\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(\sqrt{11}\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(3\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(\sqrt3\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q5" value="А" id="q5a">
+
+    <label for="q5a" class="square-btn">А</label>
+
+    <input type="radio" name="q5" value="Б" id="q5b">
+
+    <label for="q5b" class="square-btn">Б</label>
+
+    <input type="radio" name="q5" value="В" id="q5c">
+
+    <label for="q5c" class="square-btn">В</label>
+
+    <input type="radio" name="q5" value="Г" id="q5d">
+
+    <label for="q5d" class="square-btn">Г</label>
+
+    <input type="radio" name="q5" value="Д" id="q5e">
+
+    <label for="q5e" class="square-btn">Д</label>
+
+  </div>
+ </div>
+</div>
+  
+  <!-- Задание 6-->
+
+<div class="question" id="q6" data-correct="А">
+ <p>6. Траса для гонок на саморобних автомобілях має ухил під кутом \(\alpha\) на перших \(40\) метрах стартової ділянки. На наступних \(120\) метрах до фінішної лінії ухил розташований під кутом \(\beta\).
+Яка різниця висот між стартовою та фінішною лініями, якщо \(\sin \alpha = 0,3\), а \(\sin \beta = 0,15\)?
+</p>
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://i.postimg.cc/jdwhhZKf/IMG-20251226-094103-745.png" 
+          alt="Геометрична задача 19" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
+  
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(12\) м</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(18\) м</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(30\) м</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(6\) м</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(10\) м</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q6" value="А" id="q6a">
+
+    <label for="q6a" class="square-btn">А</label>
+
+    <input type="radio" name="q6" value="Б" id="q6b">
+
+    <label for="q6b" class="square-btn">Б</label>
+
+    <input type="radio" name="q6" value="В" id="q6c">
+
+    <label for="q6c" class="square-btn">В</label>
+
+    <input type="radio" name="q6" value="Г" id="q6d">
+
+    <label for="q6d" class="square-btn">Г</label>
+
+    <input type="radio" name="q6" value="Д" id="q6e">
+
+    <label for="q6e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 7--> 
+  
+  <div class="question" id="q7" data-correct="А"> 
+    
+     <div style="display: flex; align-items: flex-start; gap: 2px; margin-bottom: 6px;"> 
+      <div style="flex: 1;"> 
+        <p>7. Дві стіни шириною по \(1\) метру розташовані паралельно одна одній на відстані \(6,5\) м. Висота однієї стіни становить \(7\) м, іншої — \(4,8\) м. Тесляр має з’єднати ці дві стіни односхилим дахом.
+Вкажіть максимально точне значення довжини нахилу (ската) даху. </p>
+        </div> 
+      <div style="flex: 0 0 auto; margin-left: auto;"> 
+        <img src="https://i.postimg.cc/W1n3Qcwg/IMG-20251226-095745-954.png" 
+             alt="Геометрична задача: 7" style="max-width: 100%; height: auto; width: 195px; display: flex;" >  
+      </div> 
+    </div>
+
+     <span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(6,85\) м</span><br>
+
+   <span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(6,9\) м</span><br>
+
+    <span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(6,75\) м</span><br>
+
+    <span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(6,8\) м</span><br>
+
+   <span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(6,75\) м</span>  
+        
+        </p> 
+      
+  <div class="answer-buttons">
+
+    <input type="radio" name="q7" value="А" id="q7a">
+
+    <label for="q7a" class="square-btn">А</label>
+
+    <input type="radio" name="q7" value="Б" id="q7b">
+
+    <label for="q7b" class="square-btn">Б</label>
+
+    <input type="radio" name="q7" value="В" id="q7c">
+
+    <label for="q7c" class="square-btn">В</label>
+
+    <input type="radio" name="q7" value="Г" id="q7d">
+
+    <label for="q7d" class="square-btn">Г</label>
+
+    <input type="radio" name="q7" value="Д" id="q7e">
+
+    <label for="q7e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 8-->
+
+<div class="question" id="q8" data-correct="Г">
+ <p>8. <u><i>(Ця задача була запропонована на ЗНО 2019)</i></u></br> Перед світлофором на горизонтальній дорозі \(AB\) зупиняється автобус. Найбільший кут \(MKN\), під яким водієві автобуса видно світлофор повністю, дорівнює \(30^\circ\) (див. рисунок). Проекція відрізка \(KM\) на пряму \(AB\) паралельна напрямку \(KN\) руху автобуса, \(LP \perp AB\), \(KL=0,6\) м, \(LP=1,6\) м. Світлофор установлено на висоті \(h=4,6\) м над дорогою. Укажіть з-поміж наведених найменшу відстань \(d\) від точки \(A\) до точки \(P\) місця автобуса, за якої світлофор повністю потраплятиме в поле зору водія.
+</p>
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://i.postimg.cc/Jh8rxrD3/IMG-20251226-100644-397.png" 
+          alt="Геометрична задача 8" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(3,6\) м</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(4\) м</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(4,4\) м</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(4,7\) м</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(5,2\) м</span></li>
+
+</ul>
+  
+  <div class="answer-buttons">
+
+    <input type="radio" name="q8" value="А" id="q8a">
+
+    <label for="q8a" class="square-btn">А</label>
+
+    <input type="radio" name="q8" value="Б" id="q8b">
+
+    <label for="q8b" class="square-btn">Б</label>
+
+    <input type="radio" name="q8" value="В" id="q8c">
+
+    <label for="q8c" class="square-btn">В</label>
+
+    <input type="radio" name="q8" value="Г" id="q8d">
+
+    <label for="q8d" class="square-btn">Г</label>
+
+    <input type="radio" name="q8" value="Д" id="q8e">
+
+    <label for="q8e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 9-->
+
+<div class="question" id="q9" data-correct="Д">
+
+  <p>9. Катети прямокутного трикутника відносяться як \(7 ∶ 24\), а гіпотенуза дорівнює \(50\) см. Вкажіть різницю катетів.</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(25\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(17\) см </span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(26\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(48\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(34\) см</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q9" value="А" id="q9a">
+
+    <label for="q9a" class="square-btn">А</label>
+
+    <input type="radio" name="q9" value="Б" id="q9b">
+
+    <label for="q9b" class="square-btn">Б</label>
+
+    <input type="radio" name="q9" value="В" id="q9c">
+
+    <label for="q9c" class="square-btn">В</label>
+
+    <input type="radio" name="q9" value="Г" id="q9d">
+
+    <label for="q9d" class="square-btn">Г</label>
+
+    <input type="radio" name="q9" value="Д" id="q9e">
+
+    <label for="q9e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 10-->
+<div class="question" id="q10" data-correct="Д">
+   <p>10. <u><i>(Ця задача була запропонована на пробному ЗНО 2020)</i></u></br> 
+На рисунку зображено автомобільний тунель, поперечний переріз \(ABCD\) якого утворено хордою \(BC\), діаметром \(AD\) та двома рівними дугами \(AB\) й \(DC\) кола із центром у точці \(O\). Хорду \(BC\) довжиною \(6\) м видно із центра \(O\) під кутом \(90^\circ\). У тунелі прокладено дорогу з двома смугами руху транспорту однакової ширини, розділювальною смугою шириною \(0,4\) м та двома технічними смугами завширшки \(0,8\) м кожна. Визначте ширину однієї смуги руху транспорту. Укажіть відповідь, найближчу до точної.</p> 
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://i.postimg.cc/kXdwcLMM/IMG-20251226-104453-767.png" 
+          alt="Геометрична задача 10" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
+
+ <ul class="choices">
+
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(1,8\) м</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(2\) м</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(3,4\) м</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(3\) м</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(3,2\) м</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q10" value="А" id="q10a">
+
+    <label for="q10a" class="square-btn">А</label>
+
+    <input type="radio" name="q10" value="Б" id="q10b">
+
+    <label for="q10b" class="square-btn">Б</label>
+
+    <input type="radio" name="q10" value="В" id="q10c">
+
+    <label for="q10c" class="square-btn">В</label>
+
+    <input type="radio" name="q10" value="Г" id="q10d">
+
+    <label for="q10d" class="square-btn">Г</label>
+
+    <input type="radio" name="q10" value="Д" id="q10e">
+
+    <label for="q10e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 11-->
+
+  <div class="question" id="q11" data-correct="Г">
+
+  
+      <p>11. У трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\): \(\angle 𝐶 = 90^\circ\), \(𝐵𝐶 = 3\) см, \(sin 𝐴 = 0,6\). Вкажіть \(AB\).</p>
+    
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(2\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(4\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(3\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(5\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(6\) см</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q11" value="А" id="q11a">
+
+    <label for="q11a" class="square-btn">А</label>
+
+    <input type="radio" name="q11" value="Б" id="q11b">
+
+    <label for="q11b" class="square-btn">Б</label>
+
+    <input type="radio" name="q11" value="В" id="q11c">
+
+    <label for="q11c" class="square-btn">В</label>
+
+    <input type="radio" name="q11" value="Г" id="q11d">
+
+    <label for="q11d" class="square-btn">Г</label>
+
+    <input type="radio" name="q11" value="Д" id="q11e">
+
+    <label for="q11e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 12-->  
+    <div class="question" id="q12" data-correct="Д">
+
+  <p>12. У трапеції \(ABCD\) з основами \(AD\) та \(BC\) діагоналі перетинаються в точці \(O\). \(BO ∶ OD = 2 ∶ 3\), \(AC = 25\) см. Знайдіть \(CO\).</p>    
+      
+ <ul class="choices"> 
+
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(15\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(12\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(6\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(9\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(10\) см</span></li>
+
+  </ul>    <div class="answer-buttons">  
+
+    <input type="radio" name="q12" value="А" id="q12a">  
+
+    <label for="q12a" class="square-btn">А</label> 
+      
+      <input type="radio" name="q12" value="Б" id="q12b">  
+
+<label for="q12b" class="square-btn">Б</label>  
+
+<input type="radio" name="q12" value="В" id="q12c">  
+
+<label for="q12c" class="square-btn">В</label>  
+
+<input type="radio" name="q12" value="Г" id="q12d">  
+
+<label for="q12d" class="square-btn">Г</label>  
+
+<input type="radio" name="q12" value="Д" id="q12e">  
+
+<label for="q12e" class="square-btn">Д</label>
+
+  </div>  
+
+</div>
+  
+  <!-- Задание 13-->
+<div class="question" id="q13" data-correct="Г"> 
+    <div style="display: flex; align-items: flex-start; gap: 6px; margin-bottom: 20px;"> 
+      <div style="flex: 1; min-width: 60%;"> 
+        <p>13. У трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\) вписано квадрат KLMN (див. рисунок). Висота проведена до сторони трикутника \(AC\), дорівнює \(6\) см. Знайдіть периметр квадрата, якщо \(AC = 10\) см.</p> 
+      </div> 
+      <div style="flex: 0 0 auto; margin-left: auto;"> 
+        <img src="https://i.postimg.cc/ryGcRD7t/IMG-20251221-233113-786.png" 
+             alt="Геометрична задача: 13" style="max-width: 100%; height: auto; width: 150px; display: flex;" > 
+      </div> 
+    </div>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(12\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(10\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(16\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(15\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(14\) см</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q13" value="А" id="q13a">
+    <label for="q13a" class="square-btn">А</label>
+
+    <input type="radio" name="q13" value="Б" id="q13b">
+    <label for="q13b" class="square-btn">Б</label>
+
+    <input type="radio" name="q13" value="В" id="q13c">
+    <label for="q13c" class="square-btn">В</label>
+
+    <input type="radio" name="q13" value="Г" id="q13d">
+    <label for="q13d" class="square-btn">Г</label>
+
+    <input type="radio" name="q13" value="Д" id="q13e">
+    <label for="q13e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 14-->
+<div class="question" id="q14" data-correct="В"> 
+    <div style="display: flex; align-items: flex-start; gap: 6px; margin-bottom: 20px;"> 
+      <div style="flex: 1; min-width: 60%;"> 
+        <p>14. На сторонах \(AB\) та \(BC\) трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\)  задано точки \(K\) і \(M\) відповідно \(KM \parallel BC\) (див. рисунок). Визначте довжину відрізка \(KM\), якщо \(AK = 6 \) см, \(KB = 2\) см, \(BC = 10\) см.</p> 
+      </div> 
+      <div style="flex: 0 0 auto; margin-left: auto;"> 
+        <img src="https://i.postimg.cc/PJ0mk6hy/IMG-20251221-233858-270.png" 
+             alt="Геометрична задача: 14" style="max-width: 100%; height: auto; width: 150px; display: flex;" > 
+      </div> 
+    </div>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(6,5\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(7\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(7,5\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(8\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(8,5\) см</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q14" value="А" id="q14a">
+    <label for="q14a" class="square-btn">А</label>
+
+    <input type="radio" name="q14" value="Б" id="q14b">
+    <label for="q14b" class="square-btn">Б</label>
+
+    <input type="radio" name="q14" value="В" id="q14c">
+    <label for="q14c" class="square-btn">В</label>
+
+    <input type="radio" name="q14" value="Г" id="q14d">
+    <label for="q14d" class="square-btn">Г</label>
+
+    <input type="radio" name="q14" value="Д" id="q14e">
+    <label for="q14e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 15-->
+<div class="question" id="q15" data-correct="Д">
+
+      <p>15. \(BD\) – бісектриса трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\), \(AD=3\) см, \(DC=9\) см. Знайдіть відношення сторін \(\frac{AB}{BC}\).
+</p>
+  <ul class="choices">
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{2}{3}\)</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{3}{2}\)</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{3}{1}\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(\frac{2}{1}\)</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{1}{3}\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q15" value="А" id="q15a">
+    <label for="q15a" class="square-btn">А</label>
+
+    <input type="radio" name="q15" value="Б" id="q15b">
+    <label for="q15b" class="square-btn">Б</label>
+
+    <input type="radio" name="q15" value="В" id="q15c">
+    <label for="q15c" class="square-btn">В</label>
+
+    <input type="radio" name="q15" value="Г" id="q15d">
+    <label for="q15d" class="square-btn">Г</label>
+
+    <input type="radio" name="q15" value="Д" id="q15e">
+    <label for="q15e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 16-->
+<div class="question" id="q16" data-correct="Б">
+  <p>16. У трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\), кут \(\angle B\) – тупий. <br>Які з наведених тверджень є правильними? <br>
+    <br>
+І. \(\angle A + \angle C \lt 90^\circ\).<br>
+II. \(AB + BC \lt AC\).<br>
+III. \(\angle A  + \angle C \gt \angle BC\).</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(лише \; I \; і \; III\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(лише \; I\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(лише \; I \; і \; II\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(лише \; II \; і \; III\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(лише \; III\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q16" value="А" id="q16a">
+    <label for="q16a" class="square-btn">А</label>
+
+    <input type="radio" name="q16" value="Б" id="q16b">
+    <label for="q16b" class="square-btn">Б</label>
+
+    <input type="radio" name="q16" value="В" id="q16c">
+    <label for="q16c" class="square-btn">В</label>
+
+    <input type="radio" name="q16" value="Г" id="q16d">
+    <label for="q16d" class="square-btn">Г</label>
+
+    <input type="radio" name="q16" value="Д" id="q16e">
+    <label for="q16e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 17-->
+  <div class="question" id="q17" data-correct="В">
+  <p>17. Медіана \(AM\) рівнобедреного трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\) \((AB=BC)\) проведена до бічної сторони \(BC\). Знайдіть периметр трикутника, якщо \(MC+AC = 9\) см, а \(AB + AC = 15\) см.</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(28\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(24\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(27\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(25\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(29\) см</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q17" value="А" id="q17a">
+
+    <label for="q17a" class="square-btn">А</label>
+
+    <input type="radio" name="q17" value="Б" id="q17b">
+
+    <label for="q17b" class="square-btn">Б</label>
+
+    <input type="radio" name="q17" value="В" id="q17c">
+
+    <label for="q17c" class="square-btn">В</label>
+
+    <input type="radio" name="q17" value="Г" id="q17d">
+
+    <label for="q17d" class="square-btn">Г</label>
+
+    <input type="radio" name="q17" value="Д" id="q17e">
+
+    <label for="q17e" class="square-btn">Д</label>
+   </div>
+  </div>
+
+  <!-- Задание 18-->
+<div class="question" id="q18" data-correct="Г">
+  <p>18. Бісектриса трикутника ділить сторону на відрізки, різниця довжин яких \(1\) см. Знайдіть периметр трикутника, якщо дві інші сторони дорівнюють \(8\) см та \(6\) см.</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(23\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(22\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(25\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(21\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(27\) см</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q18" value="А" id="q18a">
+    <label for="q18a" class="square-btn">А</label>
+
+    <input type="radio" name="q18" value="Б" id="q18b">
+    <label for="q18b" class="square-btn">Б</label>
+
+    <input type="radio" name="q18" value="В" id="q18c">
+    <label for="q18c" class="square-btn">В</label>
+
+    <input type="radio" name="q18" value="Г" id="q18d">
+    <label for="q18d" class="square-btn">Г</label>
+
+    <input type="radio" name="q18" value="Д" id="q18e">
+    <label for="q18e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 19-->
+<div class="question" id="q19" data-correct="А">
+ <p>19. Промінь \(AC\) кута \(\angle BAC\) поділений паралельними прямими на шість рівних відрізків. <br>Які з наведених тверджень є правильними?<br><br>
+І. \(AD_3 = BD_3\).<br>
+ІІ. \(AC _2 = АD_2\).<br>
+ІІІ. \(BC _6 = 2D_3C_3\).
+</p>
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://i.postimg.cc/sgwpr4c7/IMG-20251222-100218-501.png" 
+          alt="Геометрична задача 19" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(лише \; I \; і \; III\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(лише \; III\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(лише \; II\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(лише \; II \; і \; III\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(лише \; I\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q19" value="А" id="q19a">
+    <label for="q19a" class="square-btn">А</label>
+
+    <input type="radio" name="q19" value="Б" id="q19b">
+    <label for="q19b" class="square-btn">Б</label>
+
+    <input type="radio" name="q19" value="В" id="q19c">
+    <label for="q19c" class="square-btn">В</label>
+
+    <input type="radio" name="q19" value="Г" id="q19d">
+    <label for="q19d" class="square-btn">Г</label>
+
+    <input type="radio" name="q19" value="Д" id="q19e">
+    <label for="q19e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 20-->
+<div class="question" id="q20" data-correct="Б">
+          20. Основа рівнобедреного трикутника менша від бічної сторони на \(12\) см, а бісектриса ділить бічну сторону на відрізки, які відносяться як \(3 : 7\). Знайдіть периметр трикутника.</p>
+  
+  <ul class="choices">
+   <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(30\) см</span></li>
+
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(51\) см</span></li>
+
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(42\) см</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(39\) см</span></li>
+
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(60\) см</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q20" value="А" id="q20a">
+    <label for="q20a" class="square-btn">А</label>
+
+    <input type="radio" name="q20" value="Б" id="q20b">
+    <label for="q20b" class="square-btn">Б</label>
+
+    <input type="radio" name="q20" value="В" id="q20c">
+    <label for="q20c" class="square-btn">В</label>
+
+    <input type="radio" name="q20" value="Г" id="q20d">
+    <label for="q20d" class="square-btn">Г</label>
+
+    <input type="radio" name="q20" value="Д" id="q20e">
+    <label for="q20e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 21 -->
+<div class="question" id="q21">
+  <p>21. На рисунку зображено кут \(\angle O\), установіть відповідність між довжиною відрізка (1-3) та виразом (А-Д), якщо \(OB_1 = 6\) см, \(OA_1 = 4\) см, \(OA_1 = A_1A_2 = A_2A_3 = A_3A_4\) , \(A_1B_1 \parallel A_2B_2 \parallel A_3B_3 \parallel A_4B_4\).</p>
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://i.postimg.cc/kgT6gyvK/IMG-20251223-155629-799.png" 
+          alt="Геометрична задача 21" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
+
+  <div class="matching">
+    <div class="left-column">
+      <h4>Довжини відрізків</h4>
+      <p>1. &nbsp;&nbsp;&nbsp;\(2\) см</p>
+      <p>2. &nbsp;&nbsp;&nbsp;\(6\) см</p>
+      <p>3. &nbsp;&nbsp;&nbsp;\(10\) см</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Вирази</h4>
+      <p>А. &nbsp;&nbsp;&nbsp;\(A_1A_2 + B_2B_3\)</p>
+      <p>Б. &nbsp;&nbsp;&nbsp;\(A_1A_3 − OB_4\)</p>
+      <p>В. &nbsp;&nbsp;&nbsp;\(A_1A_3 ∶ A_2A_3\)</p>
+      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(A_1A_2 + B_1B_3\)</p>
+      <p>Д. &nbsp;&nbsp;&nbsp;\(B_1B_4 − A_1A_4\)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q21-1" value="А"></td>
+        <td><input type="radio" name="q21-1" value="Б"></td>
+        <td><input type="radio" name="q21-1" value="В"></td>
+        <td><input type="radio" name="q21-1" value="Г"></td>
+        <td><input type="radio" name="q21-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q21-2" value="А"></td>
+        <td><input type="radio" name="q21-2" value="Б"></td>
+        <td><input type="radio" name="q21-2" value="В"></td>
+        <td><input type="radio" name="q21-2" value="Г"></td>
+        <td><input type="radio" name="q21-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q21-3" value="А"></td>
+        <td><input type="radio" name="q21-3" value="Б"></td>
+        <td><input type="radio" name="q21-3" value="В"></td>
+        <td><input type="radio" name="q21-3" value="Г"></td>
+        <td><input type="radio" name="q21-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <!-- Задание 22 -->
+<div class="question" id="q22">
+  <p>22. Установіть відповідність між трикутником (1-3) та його кутами (А-Д).
+ </p>
+
+  <div class="matching">
+    <div class="left-column">
+      <h4>Трикутники</h4>
+      <p>1. \(Рівнобедрений\) \(гострокутний\) \(трикутник \)</p>
+      <p>2. \(Різносторонній\) \(прямокутний\) \(трикутник\)</p>
+      <p>3. \(Різносторонній\) \(тупокутний\) \(трикутник\)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Кути</h4>
+  <p class="small-text">А.&nbsp;&nbsp;\(90^\circ,\; 60^\circ,\; 30^\circ\)
+</p>
+  <p class="small-text">Б.&nbsp;&nbsp;\(100^\circ,\; 50^\circ,\; 30^\circ\)
+</p>
+  <p class="small-text">В.&nbsp;&nbsp;\(70^\circ,\; 70^\circ,\; 40^\circ\)
+</p>
+  <p class="small-text">Г.&nbsp;&nbsp;&nbsp;\(70^\circ,\; 60^\circ,\; 50^\circ\)
+</p>
+  <p class="small-text">Д.&nbsp;&nbsp;\(100^\circ,\; 40^\circ,\; 40^\circ\)</p>
+</div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q22-1" value="А"></td>
+        <td><input type="radio" name="q22-1" value="Б"></td>
+        <td><input type="radio" name="q22-1" value="В"></td>
+        <td><input type="radio" name="q22-1" value="Г"></td>
+        <td><input type="radio" name="q22-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q22-2" value="А"></td>
+        <td><input type="radio" name="q22-2" value="Б"></td>
+        <td><input type="radio" name="q22-2" value="В"></td>
+        <td><input type="radio" name="q22-2" value="Г"></td>
+        <td><input type="radio" name="q22-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q22-3" value="А"></td>
+        <td><input type="radio" name="q22-3" value="Б"></td>
+        <td><input type="radio" name="q22-3" value="В"></td>
+        <td><input type="radio" name="q22-3" value="Г"></td>
+        <td><input type="radio" name="q22-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <!-- Задание 23 -->
+<div class="question" id="q23">
+  <p><strong>23. За даними, вказаними на рисунку, установіть відповідність між кутом (1-3) та вірним твердженням про нього (А-Д).
+</strong></p>
+ <div style="text-align: center; margin: 20px 0;">
+      <img 
+          src="https://i.postimg.cc/zB1Mm5MQ/IMG-20251223-084911-727.png" 
+          alt="Геометрична задача 22" 
+          style="max-width: 100%; height: auto; width: 250px;"
+      >
+  </div>
+
+  <div class="matching">
+    <div class="left-column">
+      <h4>Кути</h4>
+      <p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;\(\alpha\)
+</p>
+      <p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;\(\beta\)
+</p>
+      <p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;\(\gamma\)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Твердження</h4>
+      <p>А. &nbsp;&nbsp;&nbsp;\(в\) \(два\) \(рази\) \(більший\) \(за\) \(кут\) \(\gamma\) </p>
+      <p>Б. &nbsp;&nbsp;&nbsp;\(рівний\) \(з\) \(кутом\) \(\beta\)</p>
+      <p>В. &nbsp;&nbsp;&nbsp;\(дорівнює\) \(різниці\) \(90^\circ-\alpha\)</p>
+      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(в\) \(два\) \(рази\) \(більший\) \(за\) \(кут\) \(\alpha\)</p>
+      <p>Д. &nbsp;&nbsp;&nbsp;\(в\) \(два\) \(рази\) \(менше\) \(за\) \(різницю\) \(180^\circ-\alpha\)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q23-1" value="А"></td>
+        <td><input type="radio" name="q23-1" value="Б"></td>
+        <td><input type="radio" name="q23-1" value="В"></td>
+        <td><input type="radio" name="q23-1" value="Г"></td>
+        <td><input type="radio" name="q23-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q23-2" value="А"></td>
+        <td><input type="radio" name="q23-2" value="Б"></td>
+        <td><input type="radio" name="q23-2" value="В"></td>
+        <td><input type="radio" name="q23-2" value="Г"></td>
+        <td><input type="radio" name="q23-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q23-3" value="А"></td>
+        <td><input type="radio" name="q23-3" value="Б"></td>
+        <td><input type="radio" name="q23-3" value="В"></td>
+        <td><input type="radio" name="q23-3" value="Г"></td>
+        <td><input type="radio" name="q23-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <!-- Задание 24 -->
+<div class="question" id="q24">
+ 
+      <p><strong>24. Установіть відповідність між твердженням (1-3) та трикутником до якого воно відноситься (А-Д).</strong></p>
+
+  <div class="matching">
+    <div class="left-column">
+      <h4>Твердження</h4>
+      <p>1. \(Кожна\) \(медіана\) \(трикутника\) \(є\) \(його\) \(висотою\)</p>
+      <p>2. \(Одна\) \(з\) \(висот\) \(трикутника\) \(є\) \(його\) \(бісектрисою\)</p>
+      <p>3. \(Одна\) \(з\) \(висот\) \(трикутника\) \(є\) \(його\) \(стороною\)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Трикутники</h4>
+      <p>А. \(рівнобедрений\) \(трикутни\)</p>
+      <p>Б. \(різносторонній\) \(трикутник\)</p>
+      <p>В. \(прямокутний\) \(трикутник\)</p>
+      <p>Г. \(рівносторонній\) \(трикутник\)</p>
+      <p>Д. \(тупокутний\) \(трикутник\)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q24-1" value="А"></td>
+        <td><input type="radio" name="q24-1" value="Б"></td>
+        <td><input type="radio" name="q24-1" value="В"></td>
+        <td><input type="radio" name="q24-1" value="Г"></td>
+        <td><input type="radio" name="q24-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q24-2" value="А"></td>
+        <td><input type="radio" name="q24-2" value="Б"></td>
+        <td><input type="radio" name="q24-2" value="В"></td>
+        <td><input type="radio" name="q24-2" value="Г"></td>
+        <td><input type="radio" name="q24-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q24-3" value="А"></td>
+        <td><input type="radio" name="q24-3" value="Б"></td>
+        <td><input type="radio" name="q24-3" value="В"></td>
+        <td><input type="radio" name="q24-3" value="Г"></td>
+        <td><input type="radio" name="q24-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  
+  <!-- Задание 25 -->
+<div class="question" id="q25">
+ <p>25. За даними, вказаними на рисунку, установіть відповідність між відрізком (1-3) та його довжиною (А-Д), якщо \(KN\) – середня лінія трикутника, \(BL\) - бісектриса, \(BM\) - медіана, \(AM = 5\) см, \(BC= 9\) см, \(ML= 1\) см.</br>
+
+  <div style="text-align: center; margin: 20px 0;">
+      <img 
+          src="https://i.postimg.cc/vTyCFM16/IMG-20251223-091424-608.png" 
+          alt="Геометрична задача 25" 
+          style="max-width: 150%; height: auto; width: 350px;"
+      >
+  </div>
+  <div class="matching">
+    <div class="left-column">
+      <h4>Відрізки</h4>
+      <p>&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;\(KN\)</p>
+      <p>&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;\(AB\)</p>
+      <p>&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;\(BN\)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Довжини</h4>
+      <p>&nbsp;&nbsp;&nbsp;А.&nbsp;&nbsp;&nbsp;\(13,5\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;Б.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(4\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;В.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(4,5\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;Г.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(5\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;Д.&nbsp;&nbsp;&nbsp;\(12,5\) см</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q25-1" value="А"></td>
+        <td><input type="radio" name="q25-1" value="Б"></td>
+        <td><input type="radio" name="q25-1" value="В"></td>
+        <td><input type="radio" name="q25-1" value="Г"></td>
+        <td><input type="radio" name="q25-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q25-2" value="А"></td>
+        <td><input type="radio" name="q25-2" value="Б"></td>
+        <td><input type="radio" name="q25-2" value="В"></td>
+        <td><input type="radio" name="q25-2" value="Г"></td>
+        <td><input type="radio" name="q25-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q25-3" value="А"></td>
+        <td><input type="radio" name="q25-3" value="Б"></td>
+        <td><input type="radio" name="q25-3" value="В"></td>
+        <td><input type="radio" name="q25-3" value="Г"></td>
+        <td><input type="radio" name="q25-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <!-- Задание 26 -->
+<div class="question" id="q26">
+  <p><strong>26. Два кути трикутника дорівнюють \(58^\circ\) і \(76^\circ\). Знайдіть тупий кут, який утворюють висоти трикутника, що виходять із вершин цих кутів. </br><u><i>Відповідь надайте в градусах.</i></u></strong></p>
+    
+    <input type="text" class="open-answer" name="q26" data-correct="18"
+
+       placeholder="Введіть свою відповідь">
+
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+
+  <p class="result"></p>
+
+</div>
+
+<!-- Задание 27 -->
+<div class="question" id="q27">
+  <p><strong>27. Бісектриса трикутника ділить протилежну сторону на відрізки \(4,2\) см та \(6,8\) см. Периметр трикутника дорівнює \(38,5\) см. Знайдіть меншу сторону трикутника.</strong></p>
+  <input type="text" class="open-answer" name="q27" data-correct="18"
+       placeholder="Введіть свою відповідь">
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<!-- Задание 28 -->
+<div class="question" id="q28">
+   <div style="display: flex; align-items: flex-start; gap: 2px; margin-bottom: 20px;">
+    
+    <div style="flex: 1; min-width: 55%; margin-right:10px"> 
+      <p><strong>28. За данними вказаними на рисунку знайдіть значення виразу \(x-y\).</strong></p>
+    </div>
+    
+    <div style="flex: 0 0 auto; margin-left: auto;"> 
+      <img 
+          src="https://i.postimg.cc/5N2PdS5B/IMG-20251223-113415-297-(1).png" 
+          alt="Геометрична задача: 28" 
+          style="max-width: 62%; height: auto; width: 250px; display: block;" 
+      >
+    </div>
+</div>
+  
+  <input type="text" class="open-answer" name="q28" data-correct="18" placeholder="Введіть свою відповідь">
+  
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<!-- Задание 29 -->
+<div class="question" id="q29">
+  <p>29. Використовуючи дані на рисунку, визначте максимальну висоту тумбочки, яку можна розмістити в ніші під сходами. Відомо, що ширина тумбочки становить \(60\) см, та вона встановлюється впритул до правої стіни, а її верхній край торкається несучої конструкції сходів.</br>
+
+  <div style="text-align: center; margin: 20px 0;">
+      <img 
+          src="https://i.postimg.cc/HkR8zX92/IMG-20251223-115016-107.png" 
+          alt="Геометрична задача 29" 
+          style="max-width: 150%; height: auto; width: 350px;"
+      >
+  </div>
+  
+  <input type="text" class="open-answer" name="q29" data-correct="0" placeholder="Введіть свою відповідь">
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<!-- Задание 30 -->
+<div class="question" id="q30">
+  <p><strong>30. Бісектриса трикутника ділить сторону на відрізки, різниця довжин яких дорівнює \(3\) см. Знайдіть периметр трикутника, якщо дві інші сторони дорівнюють \(4\) і \(10\) см.</strong></p>
+  
+  <input type="text" class="open-answer" name="q30" data-correct="2" placeholder="Введіть свою відповідь">
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<script>
+  // Универсальная проверка всех открытых ответов
+  const buttons = document.querySelectorAll(".check-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const questionDiv = button.parentElement;
+      const input = questionDiv.querySelector(".open-answer");
+      const result = questionDiv.querySelector(".result");
+
+      // Заменяем запятую на точку для parseFloat
+      const correctAnswer = parseFloat(input.dataset.correct.replace(',', '.'));
+      const userAnswer = parseFloat(input.value.replace(',', '.'));
+
+      }
+    });
+  });
+</script>
+  
+ <!-- Блок с результатами -->  
+      
+    <!-- Кнопки навигации -->
+<div id="nav-buttons" style="display: none;">
+ <!-- <button type="button" onclick="prevQuestion()">← Назад</button>
+  <button type="button" onclick="nextQuestion()">Вперед →</button> -->
+  
+  <button id="finish-test" type="button">Завершити тестування</button>
+  
+</div>
+  
+ 
+<!-- результаты -->
+
+<div id="results-screen" class="hidden" style="display:none;">
+
+  <h2 id="results-title">Ваш результат</h2>
+
+  <div id="results-summary"></div>
+
+  <div id="results-list"></div>
+
+  
+
+  <!-- Контейнер для кнопок -->
+
+  <div class="results-buttons">
+
+    <button id="restart-button" type="button">Пройти тест ще раз</button>
+ <a href="http://mathdrive.tilda.ws/page104320376.html">
+    <button id="back-to-list-button" type="button">Перейти до переліку тестів</button>
+
+  </div>
+
+</div>
+
+<!-- Подпись автора -->
+<footer>
+  <h6>Автор: Олена Томашевська</h6>
+</footer>
+          <script>
+          // === СТАРТОВАЯ СТРАНИЦА ===
+
+const startScreen = document.getElementById("start-screen");
+
+const startButton = document.getElementById("start-button");
+
+const questionNav = document.getElementById("question-nav");
+
+const questions = Array.from(document.querySelectorAll(".question"));
+
+const navButtons = document.getElementById("nav-buttons");
+
+const finishButton = document.getElementById("finish-test");
+
+
+
+let currentIndex = 0;
+
+let autoNextTimeout;
+
+// Прячем всё при загрузке
+
+questions.forEach(q => q.style.display = "none");
+
+navButtons.style.display = "none";
+
+questionNav.style.display = "none";
+
+// === Правильные ответы ===
+
+const correctAnswers = {
+
+  "q1": "В", "q2": "В", "q3": "Г", "q4": "В", "q5": "В",
+
+  "q6": "А", "q7": "Д", "q8": "Г", "q9": "Д", "q10": "Б",
+
+  "q11": "Б", "q12": "Д", "q13": "Г", "q14": "В", "q15": "Д",
+
+  "q16": "Б", "q17": "В", "q18": "Г", "q19": "А", "q20": "Б",
+
+  "q21": { "1": "В", "2": "Д", "3": "А" },
+
+  "q22": { "1": "В", "2": "А", "3": "Б" },
+
+  "q23": { "1": "А", "2": "Д", "3": "Б" },
+
+  "q24": { "1": "Г", "2": "А", "3": "В" },
+
+  "q25": { "1": "Г", "2": "А", "3": "В" },
+
+  "q26": "134", "q27": "10,5", "q28": "6", "q29": "49,2", "q30": "21"
+
+};
+
+// === Создаём верхнюю навигацию ===
+
+function createQuestionNav() {
+
+  questionNav.innerHTML = "";
+
+  questions.forEach((q, index) => {
+
+    const btn = document.createElement("button");
+
+    btn.type = "button";
+
+    btn.textContent = index + 1;
+
+    btn.addEventListener("click", () => showQuestion(index));
+
+    questionNav.appendChild(btn);
+
+  });
+
+  updateNavButtons();
+
+}
+
+// === Обновить подсветку кнопок ===
+
+function updateNavButtons() {
+  const navButtons = questionNav.querySelectorAll("button");
+
+  navButtons.forEach((btn, i) => {
+    btn.classList.toggle("active", i === currentIndex);
+
+    // снимаем старые метки
+    btn.classList.remove("answered", "half");
+
+    const q = questions[i];
+
+    // ==== ВОПРОСЫ 1-20 ====
+    if (q.querySelector(".answer-buttons")) {
+      if (q.querySelector("input[type=radio]:checked")) {
+        btn.classList.add("answered");
+      }
+    }
+
+    // ==== ВОПРОСЫ 21-25 ====
+    if (q.querySelector(".match-table")) {
+      const rows = q.querySelectorAll("tbody tr");
+      const answeredCount = Array.from(rows)
+        .filter(tr => tr.querySelector("input[type=radio]:checked")).length;
+
+      if (answeredCount === 3) {
+        btn.classList.add("answered");
+      } else if (answeredCount > 0) {
+        btn.classList.add("half");
+      }
+    }
+    
+// === Блокировка повторного выбора одного и того же варианта (А–Д) в пределах одного вопроса ===
+document.querySelectorAll(".match-table").forEach(table => {
+
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach(row => {
+    const radios = row.querySelectorAll("input[type=radio]");
+
+    radios.forEach(radio => {
+      radio.addEventListener("change", () => {
+
+        // Собираем выбранные значения (например ["B", "D"])
+        const chosenValues = Array.from(table.querySelectorAll("input[type=radio]:checked"))
+          .map(r => r.value);
+
+        // Для каждой строки
+        rows.forEach(r => {
+
+          const allRadios = r.querySelectorAll("input[type=radio]");
+
+          allRadios.forEach(option => {
+
+            // Если это значение уже выбрано в другом ряду — блокируем
+            if (chosenValues.includes(option.value) && !option.checked) {
+              option.disabled = true;
+            } else {
+              // Иначе — снимаем блокировку
+              option.disabled = false;
+            }
+
+          });
+
+        });
+
+      });
+    });
+  });
+});
+
+    // ==== ВОПРОСЫ 26–30 ====
+    if (q.querySelector(".open-answer")) {
+      const result = q.querySelector(".result");
+
+      if (result && result.textContent.trim() !== "") {
+        btn.classList.add("answered");
+      }
+    }
+  });
+}
+
+// === Показ вопроса ===
+
+function showQuestion(index) {
+
+  questions.forEach(q => q.style.display = "none");
+
+  questions[index].style.display = "block";
+
+  currentIndex = index;
+
+  updateNavButtons();
+
+  if (autoNextTimeout) {
+
+    clearTimeout(autoNextTimeout);
+
+    autoNextTimeout = null;
+
+  }
+
+}
+
+// ==== СТАРТ ТЕСТА ====
+
+startButton.addEventListener("click", () => {
+
+  startScreen.style.display = "none";
+
+  navButtons.style.display = "block";
+
+  questionNav.style.display = "flex";
+
+  questionNav.classList.add("visible"); // ← ВАЖНО!
+
+  createQuestionNav();
+
+  showQuestion(0);
+
+});
+
+// ==== Автопереходы (радиокнопки) ====
+
+document.querySelectorAll(".answer-buttons input[type=radio]")
+
+  .forEach(input => {
+
+    input.addEventListener("change", () => {
+updateNavButtons();
+      if (autoNextTimeout) clearTimeout(autoNextTimeout);
+
+      autoNextTimeout = setTimeout(() => {
+
+        if (currentIndex < questions.length - 1) showQuestion(currentIndex + 1);
+
+      }, 3000);
+
+    });
+
+  });
+
+// ==== Автопереход (таблицы соответствия 21–25) ====
+
+document.querySelectorAll(".match-table").forEach(table => {
+
+  const qDiv = table.closest(".question");
+
+  const radios = table.querySelectorAll("input[type='radio']");
+
+  let tableTimeout;
+
+  radios.forEach(radio => {
+
+    radio.addEventListener("change", () => {
+
+      const rows = table.querySelectorAll("tbody tr");
+
+      const allSelected = Array.from(rows)
+
+        .every(tr => tr.querySelector("input[type='radio']:checked"));
+      
+      if (allSelected) {
+        
+        updateNavButtons();
+
+        clearTimeout(tableTimeout);
+
+        tableTimeout = setTimeout(() => {
+
+          const index = questions.indexOf(qDiv);
+
+          if (index < questions.length - 1) showQuestion(index + 1);
+
+        }, 3000);
+
+      }
+
+    });
+
+  });
+
+});
+
+// ==== Автопереход кнопки "Підтвердити вибір" 26–30 ====
+document.querySelectorAll(".check-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const qDiv = button.closest(".question");
+    const input = qDiv.querySelector(".open-answer");  // поле с ответом
+    const result = qDiv.querySelector(".result");      // контейнер для отметки ответа
+
+    if (!input || !result) return;                     // если нет полей — выходим
+
+    // Отмечаем, что ответ дан, чтобы навигация закрасила кружок
+    result.textContent = "✔ Відповідь отримано";
+
+    // Обновляем верхние кружки
+    updateNavButtons();
+
+    // Автопереход через 3 секунды
+    setTimeout(() => {
+      const index = questions.indexOf(qDiv);
+      if (index < questions.length - 1) showQuestion(index + 1);
+    }, 3000);
+  });
+});
+
+// === Нижняя навигация ===
+
+window.nextQuestion = function () {
+
+  if (currentIndex < questions.length - 1) showQuestion(currentIndex + 1);
+
+};
+
+window.prevQuestion = function () {
+
+  if (currentIndex > 0) {
+
+    showQuestion(currentIndex - 1);
+
+  } else {
+
+    questions.forEach(q => q.style.display = "none");
+
+    startScreen.style.display = "block";
+
+    navButtons.style.display = "none";
+
+    questionNav.style.display = "none";
+
+  }
+
+};
+
+// === ОКРАШИВАНИЕ КРУЖКОВ ПОСЛЕ ЗАВЕРШЕНИЯ ===
+function applyFinalNavColors() {
+  const navBtns = questionNav.querySelectorAll("button");
+
+  navBtns.forEach((btn, index) => {
+    const qNum = index + 1;
+    let btnClass = "";
+
+    // Вопросы 1–20 (радио)
+    if (qNum >= 1 && qNum <= 20) {
+      const selected = document.querySelector(`input[name="q${qNum}"]:checked`);
+      const correct = correctAnswers[`q${qNum}`];
+      btnClass = (selected && selected.value === correct) ? "correct" : "wrong";
+    }
+
+    // Вопросы 21–25 (таблицы соответствия)
+    else if (qNum >= 21 && qNum <= 25) {
+      const qId = `q${qNum}`;
+      const correctObj = correctAnswers[qId];
+      let total = Object.keys(correctObj).length;
+      let correctCount = 0;
+
+      Object.keys(correctObj).forEach(key => {
+        const selected = document.querySelector(`input[name="${qId}-${key}"]:checked`);
+        if (selected && selected.value === correctObj[key]) correctCount++;
+      });
+
+      if (correctCount === total) btnClass = "correct";
+      else if (correctCount === 0) btnClass = "wrong";
+      else btnClass = "half"; // частично верно
+    }
+
+    // Вопросы 26–30 (открытые)
+    else if (qNum >= 26 && qNum <= 30) {
+      const input = document.querySelector(`input[name="q${qNum}"]`);
+      const userAns = input ? input.value.trim() : "";
+      const correct = correctAnswers[`q${qNum}`];
+      btnClass = (userAns.toLowerCase() === String(correct).toLowerCase()) ? "correct" : "wrong";
+    }
+
+    btn.classList.remove("correct", "wrong", "half");
+    if (btnClass) btn.classList.add(btnClass);
+  });
+}
+  // ===== Обработчик кнопки "Завершити тестування" =====
+// ===== Обработчик кнопки "Завершити тестування" =====
+
+finishButton.addEventListener("click", () => {
+
+  if (autoNextTimeout) {
+
+    clearTimeout(autoNextTimeout);
+
+    autoNextTimeout = null;
+
+  }
+
+  let score = 0;
+
+  const resultsList = document.getElementById("results-list");
+
+  resultsList.innerHTML = ""; // очищаем перед вставкой
+
+  // ===== Вопросы 1–20 =====
+
+  for (let i = 1; i <= 20; i++) {
+
+    const q = "q" + i;
+
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+
+    const correct = correctAnswers[q];
+
+    const userAnswer = selected ? selected.value : "—";
+
+    const userCorrect = selected && selected.value === correct;
+
+    if (userCorrect) score += 1;
+
+    const btn = document.createElement("div");
+
+    btn.className = "result-btn " + (userCorrect ? "correct" : "wrong");
+
+    btn.innerHTML = `
+
+      <div class="question-title">Питання ${i}</div>
+
+      <div class="user-answer">Ваша відповідь: ${userAnswer}</div>
+
+      ${!userCorrect ? `<div class="correct-answer">Правильна відповідь: ${correct}</div>` : ''}
+
+    `;
+
+    resultsList.appendChild(btn);
+
+  }
+
+// ======= Вопросы 21–25 =======
+for (let i = 21; i <= 25; i++) {
+  const q = "q" + i;
+  const correctObj = correctAnswers[q];
+
+  let localScore = 0;
+  let answersLine = "";  // строка из 1-А 2-Б 3-В
+  let correctLine = "";  // правильная строка (если нужны исправления)
+
+  Object.keys(correctObj).forEach(key => {
+    const selected = document.querySelector(`input[name="${q}-${key}"]:checked`);
+    const userAnswer = selected ? selected.value : "—";
+    const isCorrect = userAnswer === correctObj[key];
+
+    if (isCorrect) localScore++;
+
+    // добавляем ответ с подсветкой (но БЕЗ span.match-item)
+    answersLine += `
+      <span class="answer ${isCorrect ? 'correct-answer-bg' : 'wrong-answer-bg'}">
+        ${key}-${userAnswer}
+      </span>
+    `;
+
+    correctLine += `${key}-${correctObj[key]} `;
+  });
+
+  score += localScore;
+
+  const btn = document.createElement("button");
+
+  if (localScore === Object.keys(correctObj).length)
+    btn.className = "result-btn correct";
+  else if (localScore === 0)
+    btn.className = "result-btn wrong";
+  else
+    btn.className = "result-btn half";
+
+  btn.innerHTML = `
+    <div class="question-title">Питання ${i}</div>
+
+    <div class="user-answer-label">Ваша відповідь:</div>
+    <div class="user-answer-values">${answersLine}</div>
+
+    ${localScore === Object.keys(correctObj).length ? "" : `
+      <div class="correct-answer-label">Правильна відповідь:</div>
+      <div class="correct-answer-values">${correctLine}</div>
+    `}
+  `;
+
+  resultsList.appendChild(btn);
+}
+  // ===== Вопросы 26–30 =====
+
+  for (let i = 26; i <= 30; i++) {
+
+    const q = "q" + i;
+
+    const input = document.querySelector(`input[name="${q}"]`);
+
+    const userAnswer = input ? input.value.trim() : "";
+
+    const correct = correctAnswers[q];
+
+    const userCorrect = userAnswer.toLowerCase() === correct.toLowerCase();
+
+    if (userCorrect) score += 2;
+
+    const btn = document.createElement("div");
+
+    btn.className = "result-btn " + (userCorrect ? "correct" : "wrong");
+
+    btn.innerHTML = `
+
+      <div class="question-title">Питання ${i}</div>
+
+      <div class="user-answer">Ваша відповідь: ${userAnswer || "—"}</div>
+
+      ${!userCorrect ? `<div class="correct-answer">Правильна відповідь: ${correct}</div>` : ''}
+
+    `;
+
+    resultsList.appendChild(btn);
+
+  }
+
+  // ===== Показываем результаты =====
+
+  const percent = Math.round((score / 45) * 100);
+
+  document.getElementById("results-summary").innerHTML = `
+
+    <p><b>Набрано балів:</b> ${score} із 45</p>
+
+    <p><b>Результат:</b> ${percent}%</p>
+
+  `;
+
+  // Показываем блок с результатами
+
+  document.getElementById("results-screen").style.display = "block";
+
+  // Показываем верхнюю навигацию над результатами
+
+  questionNav.style.display = "flex";
+
+  // Прячем нижние кнопки
+
+  navButtons.style.display = "none";
+
+  // Прячем вопросы
+
+  questions.forEach(q => q.style.display = "none");
+
+  // Раскрасить кружки сверху
+
+  applyFinalNavColors();
+
+});
+
+// ===== Функция перехода к вопросу =====
+
+function goToQuestion(num) {
+
+  // Прячем результаты
+
+  document.getElementById("results-screen").style.display = "none";
+
+  // Показываем нужный вопрос
+
+  questions.forEach((q, index) => {
+
+    q.style.display = (index === num - 1) ? "block" : "none";
+
+  });
+
+  // Восстанавливаем навигацию
+
+  questionNav.style.display = "flex";
+
+  navButtons.style.display = "flex";
+
+}
+// Кнопка "Пройти тест ще раз"
+
+// ===== Кнопка "Пройти тест ще раз" =====
+
+document.getElementById("restart-button").onclick = (event) => {
+
+  event.preventDefault();
+
+  // Сброс текущего индекса и автоперехода
+
+  currentIndex = 0;
+
+  if (autoNextTimeout) {
+
+    clearTimeout(autoNextTimeout);
+
+    autoNextTimeout = null;
+
+  }
+
+  // Скрыть экран результатов
+
+  document.getElementById("results-screen").style.display = "none";
+
+  // Скрыть все вопросы
+
+  questions.forEach(q => q.style.display = "none");
+
+  // Сброс всех ответов
+
+  document.querySelectorAll('input').forEach(inp => {
+
+    if (inp.type === "radio" || inp.type === "checkbox") inp.checked = false;
+
+    else inp.value = "";
+
+  });
+
+  // Сброс отмеченных результатов для открытых вопросов (26–30)
+
+questions.forEach(q => {
+
+  const resultEl = q.querySelector(".result");
+
+  if (resultEl) resultEl.textContent = "";
+
+});
+  
+  // Сброс результатов
+
+  document.getElementById("results-list").innerHTML = "";
+
+  document.getElementById("results-summary").innerHTML = "";
+
+  // Сброс цветов верхней навигации
+
+  document.querySelectorAll('#question-nav button').forEach(btn => {
+
+    btn.className = ''; // убираем все классы correct/wrong/half/active/answered
+
+  });
+
+  // Показ стартового экрана
+
+  startScreen.style.display = "block";
+
+  // Скрыть навигацию и нижние кнопки до старта теста
+
+  questionNav.style.display = "none";
+
+  navButtons.style.display = "none";
+};
+    </script>
+</body>
+</html>
