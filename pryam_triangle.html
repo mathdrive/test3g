@@ -1001,46 +1001,112 @@ box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
 
 }
 
-/* Для завдання 22 
+/* Для завдання 21 */
+#q21 .matching {
+  display: flex;
+}
+
+#q21 .right-column {
+  width: 110px;   /* можна змінити на потрібне значення */
+ flex-shrink: 0; 
+}
+
+#q21 .left-column {
+  flex: 1;        /* права колонка займає решту простору */
+  padding-left: 20px;
+}
+#q21 .small-text {
+  font-size: 12px;   /* або 12px, залежно від бажаного розміру */
+ line-height: 1.4;  /*  робить текст читабельним */
+}
+
+/* Для завдання 22 */
 #q22 .matching {
   display: flex;
 }
 
-#q22 .left-column {
-  width: 50px;   /* можна змінити на потрібне значення */
-  /*flex-shrink: 0;  щоб колонка не розтягувалась 
+#q22 .right-column {
+  width: 180px;   /* можна змінити на потрібне значення */
+flex-shrink: 0; 
 }
 
-/*#q22 .right-column {
+#q22 .left-column {
   flex: 1;        /* права колонка займає решту простору */
-  /*padding-left: 20px;
+ padding-left: 20px;
 }
 #q22 .small-text {
-  font-size: 12px;   /* або 12px, залежно від бажаного розміру */
-  /*line-height: 1.4;   робить текст читабельним 
-}*/
+  font-size: 13px;   /* або 12px, залежно від бажаного розміру */
+ line-height: 1.4;  /*  робить текст читабельним */
+}
 
-
+/* Для завдання 23 */
 /* Для завдання 23 */
 #q23 .matching {
   display: flex;
-}
-#q23 .left-column
-{
-  width: 120px;   /* можна змінити на потрібне значення */
-  flex-shrink: 0; /* щоб колонка не розтягувалась */
+  flex-direction: row; /* Завжди в ряд на ПК */
 }
 
-#q23 .right-column
-{
-  flex: 1;        /* права колонка займає решту простору */
+#q23 .right-column {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+#q23 .left-column {
+  flex: 1;
   padding-left: 20px;
 }
+
 #q23 .small-text {
-  font-size: 14px;   /* або 12px, залежно від бажаного розміру */
-  line-height: 1.4;  /* робить текст читабельним */
+  font-size: 13px;
+  line-height: 1.4;
 }
 
+/* АДАПТАЦІЯ ДЛЯ МОБІЛЬНИХ (екрани до 640px) */
+@media screen and (max-width: 640px) {
+  #q24 .matching {
+    flex-direction: column !important; /* Колонки стають одна під одну */
+  }
+
+  #q24 .left-column {
+    padding-left: 0 !important; /* Прибираємо відступ збоку, бо тепер це верхній блок */
+    margin-bottom: 20px; /* Додаємо відступ знизу до наступної колонки */
+    width: 93% !important;
+  }
+
+  #q24 .right-column {
+    width: 90% !important; /* Права колонка розтягується на всю ширину */
+    flex-shrink: 1;
+  }
+
+  /* ФІКС ТЕКСТУ: дозволяємо формулам MathJax розриватися на частини */
+  #q24 .left-column mjx-container {
+    white-space: normal !important; 
+    display: inline-block !important;
+  }
+}
+
+/* АДАПТАЦІЯ ДЛЯ МОБІЛЬНИХ (екрани до 640px) */
+@media screen and (max-width: 640px) {
+  #q24 .matching {
+    flex-direction: column !important; /* Колонки стають одна під одну */
+  }
+
+  #q24 .left-column {
+    padding-left: 0 !important; /* Прибираємо відступ збоку, бо тепер це верхній блок */
+    margin-bottom: 20px; /* Додаємо відступ знизу до наступної колонки */
+    width: 93% !important;
+  }
+
+  #q24 .right-column {
+    width: 90% !important; /* Права колонка розтягується на всю ширину */
+    flex-shrink: 1;
+  }
+
+  /* ФІКС ТЕКСТУ: дозволяємо формулам MathJax розриватися на частини */
+  #q24 .left-column mjx-container {
+    white-space: normal !important; 
+    display: inline-block !important;
+  }
 }
 }
 </style>
@@ -1633,22 +1699,19 @@ box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
 </div>
   
   <!-- Задание 12-->  
-    <div class="question" id="q12" data-correct="Д">
+    <div class="question" id="q12" data-correct="Б">
 
-  <p>12. У трапеції \(ABCD\) з основами \(AD\) та \(BC\) діагоналі перетинаються в точці \(O\). \(BO ∶ OD = 2 ∶ 3\), \(AC = 25\) см. Знайдіть \(CO\).</p>    
+  <p>12. У прямокутному трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\): \(AC = 7𝑥\) см, \(BC =17𝑥\) см, \(\angle C\) − найбільший кут трикутника.<br> Які з наведених тверджень є правильними?<br><br>
+І. Катети трикутника відносяться як \(1 ∶ 3\).<br>
+ІІ. Кут \(\angle A \gt 60^\circ\).<br>
+ІІІ. Сторона \(AB=13\sqrt{2}\) см.   
       
  <ul class="choices"> 
-
-    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(15\) см</span></li>
-
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(12\) см</span></li>
-
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(6\) см</span></li>
-
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(9\) см</span></li>
-
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(10\) см</span></li>
-
+ <li><span class="choice-letter">А.</span><span class="choice-text">\(лише \; I \; і \; II\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(лише \; II\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(лише \; I \; і \; III\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(лише \; II \; і \; III\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(лише \; III\)</span></li>
   </ul>    <div class="answer-buttons">  
 
     <input type="radio" name="q12" value="А" id="q12a">  
@@ -1676,27 +1739,27 @@ box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
 </div>
   
   <!-- Задание 13-->
-<div class="question" id="q13" data-correct="Г"> 
-    <div style="display: flex; align-items: flex-start; gap: 6px; margin-bottom: 20px;"> 
-      <div style="flex: 1; min-width: 60%;"> 
-        <p>13. У трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\) вписано квадрат KLMN (див. рисунок). Висота проведена до сторони трикутника \(AC\), дорівнює \(6\) см. Знайдіть периметр квадрата, якщо \(AC = 10\) см.</p> 
+<div class="question" id="q13" data-correct="В"> 
+    <div style="display: flex; align-items: flex-start; gap: 1px; margin-bottom: 8px;"> 
+      <div style="flex: 1; min-width: 30%;"> 
+        <p>13. За данними вказаними на рисунку вкажіть сінус кута \(\beta\).</p> 
       </div> 
       <div style="flex: 0 0 auto; margin-left: auto;"> 
-        <img src="https://i.postimg.cc/ryGcRD7t/IMG-20251221-233113-786.png" 
-             alt="Геометрична задача: 13" style="max-width: 100%; height: auto; width: 150px; display: flex;" > 
+        <img src="https://github.com/mathdrive/test3g/blob/main/IMG_20251230_080107_256.png?raw=true" 
+             alt="Геометрична задача: 13" style="max-width: 100%; height: auto; width: 250px; display: flex;" > 
       </div> 
     </div>
 
   <ul class="choices">
-    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(12\) см</span></li>
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(\sqrt{3,5}\)</span></li>
 
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(10\) см</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(\sqrt{1,75}\)</span></li>
 
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(16\) см</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(0,5\)</span></li>
 
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(15\) см</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(0,35\)</span></li>
 
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(14\) см</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(1\)</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1718,27 +1781,23 @@ box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
 </div>
   
   <!-- Задание 14-->
-<div class="question" id="q14" data-correct="В"> 
-    <div style="display: flex; align-items: flex-start; gap: 6px; margin-bottom: 20px;"> 
-      <div style="flex: 1; min-width: 60%;"> 
-        <p>14. На сторонах \(AB\) та \(BC\) трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\)  задано точки \(K\) і \(M\) відповідно \(KM \parallel BC\) (див. рисунок). Визначте довжину відрізка \(KM\), якщо \(AK = 6 \) см, \(KB = 2\) см, \(BC = 10\) см.</p> 
-      </div> 
-      <div style="flex: 0 0 auto; margin-left: auto;"> 
-        <img src="https://i.postimg.cc/PJ0mk6hy/IMG-20251221-233858-270.png" 
-             alt="Геометрична задача: 14" style="max-width: 100%; height: auto; width: 150px; display: flex;" > 
-      </div> 
-    </div>
+<div class="question" id="q14" data-correct="Г">
+   <p>14. <u><i>(Ця задача була запропонована на ЗНО 2020)</i></u></br> 
+Стріла \(CD\) автокрана нахилена до горизонтальної поверхні \(AB\) під кутом \(60^\circ\), \(CD=20\) м (див. рисунок). Основа \(C\) стріли розташована на відстані \(d=2\) м від \(AB\). Відстань \(h_1\) від кінця \(D\) стріли до нижньої основи \(MN\) вантажу становить \(6\) м. Укажіть проміжок, якому належить відстань \(h_2\) (у м) від \(MN\) до \(AB\). Уважайте, що \(MN \parallel AB\).</p> 
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20251230_085209_895.png?raw=true" 
+          alt="Геометрична задача 10" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
 
   <ul class="choices">
-    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(6,5\) см</span></li>
-
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(7\) см</span></li>
-
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(7,5\) см</span></li>
-
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(8\) см</span></li>
-
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(8,5\) см</span></li>
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(\left(4;8\right.]\)</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(\left(8;10,5\right.]\)</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(\left(10,5;12,5\right.]\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(\left(12,5;14,5\right.]\)</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(\left(14,5;20\right.)\)</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1760,16 +1819,22 @@ box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
 </div>
   
   <!-- Задание 15-->
-<div class="question" id="q15" data-correct="Д">
-
-      <p>15. \(BD\) – бісектриса трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\), \(AD=3\) см, \(DC=9\) см. Знайдіть відношення сторін \(\frac{AB}{BC}\).
-</p>
+<div class="question" id="q15" data-correct="В">
+   <p>15. Бортовий комп'ютер невеликого літака, що летить на висоті \(800\) м, обчислює довжину злітно-посадкової смуги, використовуючи дані, представлені на графіку.
+За данними на рисунку вкажіть значення, що найбільш наближене до реальної довжини злітно-посадкової смуги.</p> 
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20251230_091652_394.png?raw=true" 
+          alt="Геометрична задача 10" 
+          style="max-width: 100%; height: auto; width: 400px;"
+      >
+  </div>
   <ul class="choices">
-    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{2}{3}\)</span></li>
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{3}{2}\)</span></li>
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{3}{1}\)</span></li>
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(\frac{2}{1}\)</span></li>
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{1}{3}\)</span></li>
+   <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(825\) м</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(1250\) м</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(1385\) м</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(1445\) м</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(1500\) м</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1791,19 +1856,23 @@ box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
 </div>
   
   <!-- Задание 16-->
-<div class="question" id="q16" data-correct="Б">
-  <p>16. У трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\), кут \(\angle B\) – тупий. <br>Які з наведених тверджень є правильними? <br>
-    <br>
-І. \(\angle A + \angle C \lt 90^\circ\).<br>
-II. \(AB + BC \lt AC\).<br>
-III. \(\angle A  + \angle C \gt \angle BC\).</p>
+<div class="question" id="q16" data-correct="Г">
+   <p>16. <u><i>(Ця задача була запропонована на ЗНО 2021)</i></u></br> 
+Прямолінійною дорогою \(AB\) рухається тролейбус (див. рисунок) Лінія \(CD\) електричного дроту паралельна \(AB\) й даху \(MN\) тролейбуса. Штанга \(KN\), що на рисунку є відрізком, утворює з \(MN\) кут \(30^\circ\). Відстані між прямими \(CD\) й \(AB\), \(MN\) й \(AB\) дорівнюють \(6\) м і \(3,2\) м відповідно. Укажіть проміжок, якому належить довжина (у м) штанги \(KN\). Уважайте, що всі зазначені прямі лежать в одній площині.</p> 
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20251230_115520_378-removebg-preview.png?raw=true" 
+          alt="Геометрична задача 10" 
+          style="max-width: 100%; height: auto; width: 350px;"
+      >
+  </div>
 
   <ul class="choices">
-    <li><span class="choice-letter">А.</span><span class="choice-text">\(лише \; I \; і \; III\)</span></li>
-    <li><span class="choice-letter">Б.</span><span class="choice-text">\(лише \; I\)</span></li>
-    <li><span class="choice-letter">В.</span><span class="choice-text">\(лише \; I \; і \; II\)</span></li>
-    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(лише \; II \; і \; III\)</span></li>
-    <li><span class="choice-letter">Д.</span><span class="choice-text">\(лише \; III\)</span></li>
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(\left[1;3\right.)\)</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(\left[3;5\right.)\)</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(\left[5;5,5\right.)\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(\left[5,5;6\right.)\)</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(\left[6;8\right.)\)</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1825,20 +1894,22 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 </div>
   
   <!-- Задание 17-->
-  <div class="question" id="q17" data-correct="В">
-  <p>17. Медіана \(AM\) рівнобедреного трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\) \((AB=BC)\) проведена до бічної сторони \(BC\). Знайдіть периметр трикутника, якщо \(MC+AC = 9\) см, а \(AB + AC = 15\) см.</p>
+ <div class="question" id="q17" data-correct="А">
+   <p>17. Вершину вежі видно з двох точок, \(A\) та \(B\), на землі під кутами \(\alpha\) та \(\beta\) відповідно, розташованих на відстані \(x\) метрів одна від одної (див. рисунок). При чому висота вежі дорівнює відстані між точками \(A\) та \(B\). Вкажіть вираз за яким можна визначити відстань від точки \(B\) до точки \(C\).</p> 
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20251230_121635_230-removebg-preview.png?raw=true" 
+          alt="Геометрична задача 10" 
+          style="max-width: 100%; height: auto; width: 350px;"
+      >
+  </div>
 
   <ul class="choices">
-    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(28\) см</span></li>
-
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(24\) см</span></li>
-
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(27\) см</span></li>
-
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(25\) см</span></li>
-
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(29\) см</span></li>
-
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{x}{\operatorname{tg}\beta}\)</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{\operatorname{tg}\beta}{x}\)</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{\sin\alpha}{x}\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(\frac{x}{\cos\beta}\)</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(\frac{x}{\sin\alpha}\)</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1867,18 +1938,23 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 
   <!-- Задание 18-->
 <div class="question" id="q18" data-correct="Г">
-  <p>18. Бісектриса трикутника ділить сторону на відрізки, різниця довжин яких \(1\) см. Знайдіть периметр трикутника, якщо дві інші сторони дорівнюють \(8\) см та \(6\) см.</p>
+   <p>18. <u><i>(Ця задача була запропонована на ЗНО 2017)</i></u></br>  
+На рисунку зображено поперечний переріз аркового проїзду, верхня частина якого (дуга \(BKC\)) має форму півкола радіуса \(OC = 2\) м. Відрізки \(AB\) і \(DC\) перпендикулярні до \(AD\),  \(AB = DC = 2\) м. Яке з наведених значень є найбільшим можливим значенням висоти \(h\) вантажівки, за якого вона зможе проїхати через цей арковий проїзд, не торкаючись верхньої частини арки (дуги \(BKC\))?  
+Уважайте, що \(LMNP\) – прямокутник, у якому \(MN = 2,4\) м і \(MN \parallel AD\).</p> 
+  <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20251230_123844_997-removebg-preview.png?raw=true" 
+          alt="Геометрична задача 10" 
+          style="max-width: 100%; height: auto; width: 350px;"
+      >
+  </div>
 
   <ul class="choices">
-    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(23\) см</span></li>
-
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(22\) см</span></li>
-
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(25\) см</span></li>
-
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(21\) см</span></li>
-
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(27\) см</span></li>
+    <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(4,4\) м</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(4\) м</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(3,7\) м</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(3,5\) м</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(3,2\) м</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1900,26 +1976,23 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 </div>
   
   <!-- Задание 19-->
-<div class="question" id="q19" data-correct="А">
- <p>19. Промінь \(AC\) кута \(\angle BAC\) поділений паралельними прямими на шість рівних відрізків. <br>Які з наведених тверджень є правильними?<br><br>
-І. \(AD_3 = BD_3\).<br>
-ІІ. \(AC _2 = АD_2\).<br>
-ІІІ. \(BC _6 = 2D_3C_3\).
+<div class="question" id="q19" data-correct="В">
+ <p>19. З повітряної кулі, що знаходиться на висоті \(1,9\) км над Землею, двоє людей бачать центри своїх селищ. Щоб побачити центр \(А\), їм потрібно опустити погляд на \(30^\circ\) (кут зниження). Центр \(В\) видно під кутом \(45^\circ\). Із землі центри двох селищ видно під кутом \(120^\circ\) (кут між напрямками на селища з точки на землі під кулею). На якій відстані розташовані центри селищ один від одного? Відповідь округліть до одного знака після коми.
 </p>
   <div style="text-align: center; margin: 10px 0;">
       <img 
-          src="https://i.postimg.cc/sgwpr4c7/IMG-20251222-100218-501.png" 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20260103_124801_648-removebg-preview.png?raw=true" 
           alt="Геометрична задача 19" 
           style="max-width: 100%; height: auto; width: 300px;"
       >
   </div>
 
   <ul class="choices">
-    <li><span class="choice-letter">А.</span><span class="choice-text">\(лише \; I \; і \; III\)</span></li>
-    <li><span class="choice-letter">Б.</span><span class="choice-text">\(лише \; III\)</span></li>
-    <li><span class="choice-letter">В.</span><span class="choice-text">\(лише \; II\)</span></li>
-    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(лише \; II \; і \; III\)</span></li>
-    <li><span class="choice-letter">Д.</span><span class="choice-text">\(лише \; I\)</span></li>
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(19\) км</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(20,4\) км</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(4,5\) км</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(4,6\) км</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(19,2\) км</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1941,19 +2014,26 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 </div>
   
   <!-- Задание 20-->
-<div class="question" id="q20" data-correct="Б">
-          20. Основа рівнобедреного трикутника менша від бічної сторони на \(12\) см, а бісектриса ділить бічну сторону на відрізки, які відносяться як \(3 : 7\). Знайдіть периметр трикутника.</p>
-  
+<div class="question" id="q20" data-correct="Г">
+          20. <u><i>(Ця задача була запропонована на додатковій сесії ЗНО 2014)</i></u></br>  
+Автомобіль рухався по дорозі паралельно паркану \(NP\) і зупинився біля закритих воріт \(KL\) так, як зображено на рисунку. Відомо, що розмах стулки воріт \(LM\) становить \(2\) м, \(OQ = 1\) м. Укажіть найменшу з наведених довжину відрізка \(LO\), при якій стулка \(LM\) не зачепить автомобіль за умови повного відкривання  воріт. Уважайте, що ворота перпендикулярні до площини дороги і мають рівну прямокутну форму. Товщиною стулок знехтуйте.</p> 
+   <div style="text-align: center; margin: 10px 0;">
+      <img 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20260103_131531_673-removebg-preview.png?raw=true" 
+          alt="Геометрична задача 19" 
+          style="max-width: 100%; height: auto; width: 300px;"
+      >
+  </div>
   <ul class="choices">
-   <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(30\) см</span></li>
+   <li><span class="choice-letter">А.&nbsp;&nbsp;</span><span class="choice-text">\(220\) см</span></li>
 
-    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(51\) см</span></li>
+    <li><span class="choice-letter">Б.&nbsp;&nbsp;</span><span class="choice-text">\(150\) см</span></li>
 
-    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(42\) см</span></li>
+    <li><span class="choice-letter">В.&nbsp;&nbsp;</span><span class="choice-text">\(200\) см</span></li>
 
-    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(39\) см</span></li>
+    <li><span class="choice-letter">Г.&nbsp;&nbsp;&nbsp;</span><span class="choice-text">\(170\) см</span></li>
 
-    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(60\) см</span></li>
+    <li><span class="choice-letter">Д.&nbsp;&nbsp;</span><span class="choice-text">\(190\) см</span></li>
   </ul>
 
   <div class="answer-buttons">
@@ -1976,30 +2056,23 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   
   <!-- Задание 21 -->
 <div class="question" id="q21">
-  <p>21. На рисунку зображено кут \(\angle O\), установіть відповідність між довжиною відрізка (1-3) та виразом (А-Д), якщо \(OB_1 = 6\) см, \(OA_1 = 4\) см, \(OA_1 = A_1A_2 = A_2A_3 = A_3A_4\) , \(A_1B_1 \parallel A_2B_2 \parallel A_3B_3 \parallel A_4B_4\).</p>
-  <div style="text-align: center; margin: 10px 0;">
-      <img 
-          src="https://i.postimg.cc/kgT6gyvK/IMG-20251223-155629-799.png" 
-          alt="Геометрична задача 21" 
-          style="max-width: 100%; height: auto; width: 300px;"
-      >
-  </div>
+  <p>21. Установіть відповідність між тригонометричною функцією гострих кутів прямокутного трикутника (1-3) та числовим значенням цих функцій (А-Д), якщо катет прямокутного трикутника дорівнює \(2\) см, а його гіпотенуза – \(\sqrt{5}\) см.</p>
 
   <div class="matching">
     <div class="left-column">
-      <h4>Довжини відрізків</h4>
-      <p>1. &nbsp;&nbsp;&nbsp;\(2\) см</p>
-      <p>2. &nbsp;&nbsp;&nbsp;\(6\) см</p>
-      <p>3. &nbsp;&nbsp;&nbsp;\(10\) см</p>
+      <h4>Функція</h4>
+      <p>1. \(Тангенс\; більшого\)<br> \(гострого \;кута \)</p>
+      <p>2. \(Косинус\; більшого\)<br>\( гострого \;кута\) </p>
+      <p>3. \(Косинус \;меньшого\) <br>\(гострого \;кута\)</p>
     </div>
 
     <div class="right-column">
-      <h4>Вирази</h4>
-      <p>А. &nbsp;&nbsp;&nbsp;\(A_1A_2 + B_2B_3\)</p>
-      <p>Б. &nbsp;&nbsp;&nbsp;\(A_1A_3 − OB_4\)</p>
-      <p>В. &nbsp;&nbsp;&nbsp;\(A_1A_3 ∶ A_2A_3\)</p>
-      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(A_1A_2 + B_1B_3\)</p>
-      <p>Д. &nbsp;&nbsp;&nbsp;\(B_1B_4 − A_1A_4\)</p>
+      <h4>Значення</h4>
+    <p>А. &nbsp;&nbsp;&nbsp;\(\frac{2}{\sqrt{5}}\)</p>
+      <p>Б. &nbsp;&nbsp;&nbsp;\(\frac{1}{\sqrt{5}}\)</p>
+      <p>В. &nbsp;&nbsp;&nbsp;\(1\)</p>
+      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(2\)</p>
+      <p>Д. &nbsp;&nbsp;&nbsp;\(\frac{\sqrt{5}}{2}\)</p>
     </div>
   </div>
 
@@ -2045,28 +2118,28 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   
   <!-- Задание 22 -->
 <div class="question" id="q22">
-  <p>22. Установіть відповідність між трикутником (1-3) та його кутами (А-Д).
+  <p>22. Обидва катети прямокутного трикутника збільшили у 3 рази. Установіть відповідність між елементом трикутника (1–3) та характером його зміни (А–Д).
  </p>
 
   <div class="matching">
     <div class="left-column">
-      <h4>Трикутники</h4>
-      <p>1. \(Рівнобедрений\) \(гострокутний\) \(трикутник \)</p>
-      <p>2. \(Різносторонній\) \(прямокутний\) \(трикутник\)</p>
-      <p>3. \(Різносторонній\) \(тупокутний\) \(трикутник\)</p>
+      <h4>Елементи трикутника</h4>
+      <p>1. \(Гіпотенуза\)<br> \(трикутника\)</p>
+      <p>2. \(Гострі\; кути\)<br> \(трикутника\)</p>
+      <p>3. \(Площа\)<br> \(трикутника\)</p>
     </div>
 
     <div class="right-column">
-      <h4>Кути</h4>
-  <p class="small-text">А.&nbsp;&nbsp;\(90^\circ,\; 60^\circ,\; 30^\circ\)
-</p>
-  <p class="small-text">Б.&nbsp;&nbsp;\(100^\circ,\; 50^\circ,\; 30^\circ\)
-</p>
-  <p class="small-text">В.&nbsp;&nbsp;\(70^\circ,\; 70^\circ,\; 40^\circ\)
-</p>
-  <p class="small-text">Г.&nbsp;&nbsp;&nbsp;\(70^\circ,\; 60^\circ,\; 50^\circ\)
-</p>
-  <p class="small-text">Д.&nbsp;&nbsp;\(100^\circ,\; 40^\circ,\; 40^\circ\)</p>
+      <h4>Зміни</h4>
+  <p class="small-text">А.&nbsp;&nbsp;\(Збільшиться\; в \;3 \;рази\)
+</p><br>
+  <p class="small-text">Б.&nbsp;&nbsp;\(Збільшиться \;в \;6 \;разів\)
+</p><br>
+  <p class="small-text">В.&nbsp;&nbsp;\(Збільшиться\; в \;9\; разів\)
+</p><br>
+  <p class="small-text">Г.&nbsp;&nbsp;&nbsp;\(Не\; зміниться\)
+</p><br>
+  <p class="small-text">Д.&nbsp;&nbsp;\(Збільшиться \;в \; \sqrt{3} \;разів\)</p>
 </div>
   </div>
 
@@ -2112,11 +2185,10 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   
   <!-- Задание 23 -->
 <div class="question" id="q23">
-  <p><strong>23. За даними, вказаними на рисунку, установіть відповідність між кутом (1-3) та вірним твердженням про нього (А-Д).
-</strong></p>
+  <p><strong>23. У прямокутнику \(𝐴𝐵𝐶𝐷\): \(𝐴𝐵 = 6\) см, \(𝐵𝐶 = 8\) см (див. рисунок). На сторонах \(𝐴𝐵\), \(𝐵𝐶\) і \(𝐴𝐷\) цього прямоутника вибрано точки \(𝐾\), \(𝑀\), \(𝑁\) так, що \(𝐴𝐾 = 𝐾𝐵\), \(𝐵𝑀 = 𝑀𝐶\), \(𝑁𝐾\perp 𝐾𝑀\). До кожного початку речення (1-3) доберіть його закінчення (А-Д) так, щоб утворилось правильне твердження.</strong></p>
  <div style="text-align: center; margin: 20px 0;">
       <img 
-          src="https://i.postimg.cc/zB1Mm5MQ/IMG-20251223-084911-727.png" 
+          src="https://github.com/mathdrive/test3g/blob/main/IMG_20260105_195834_295-removebg-preview.png?raw=true" 
           alt="Геометрична задача 22" 
           style="max-width: 100%; height: auto; width: 250px;"
       >
@@ -2124,21 +2196,22 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 
   <div class="matching">
     <div class="left-column">
-      <h4>Кути</h4>
-      <p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;\(\alpha\)
+      <h4>Початок речення</h4>
+      <br> 
+      <p class="small-text">&nbsp;&nbsp;1.&nbsp;\(Відстань \;від\; середини\; відрізка\; 𝐾𝑀 \;до \;сторони\; 𝐴𝐷 \;дорівнює\)
 </p>
-      <p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;\(\beta\)
+      <p class="small-text">&nbsp;&nbsp;2.&nbsp;\(Довжина \;відрізка \;𝐾𝑀 \;дорівнює\)
 </p>
-      <p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;\(\gamma\)</p>
+      <p class="small-text">&nbsp;&nbsp;3.&nbsp;\(Довжина \;відрізка \;𝐴𝑁 \;дорівнює\)</p>
     </div>
 
     <div class="right-column">
-      <h4>Твердження</h4>
-      <p>А. &nbsp;&nbsp;&nbsp;\(в\) \(два\) \(рази\) \(більший\) \(за\) \(кут\) \(\gamma\) </p>
-      <p>Б. &nbsp;&nbsp;&nbsp;\(рівний\) \(з\) \(кутом\) \(\beta\)</p>
-      <p>В. &nbsp;&nbsp;&nbsp;\(дорівнює\) \(різниці\) \(90^\circ-\alpha\)</p>
-      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(в\) \(два\) \(рази\) \(більший\) \(за\) \(кут\) \(\alpha\)</p>
-      <p>Д. &nbsp;&nbsp;&nbsp;\(в\) \(два\) \(рази\) \(менше\) \(за\) \(різницю\) \(180^\circ-\alpha\)</p>
+      <h4>Закінчення речення</h4>
+      <p>А. &nbsp;&nbsp;&nbsp;\(4,5\) см</p>
+      <p>Б. &nbsp;&nbsp;&nbsp;\(4\) см</p>
+      <p>В. &nbsp;&nbsp;&nbsp;\(5\) см</p>
+      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(3,75\) см</p>
+      <p>Д. &nbsp;&nbsp;&nbsp;\(2\) см</p>
     </div>
   </div>
 
@@ -2184,23 +2257,23 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   <!-- Задание 24 -->
 <div class="question" id="q24">
  
-      <p><strong>24. Установіть відповідність між твердженням (1-3) та трикутником до якого воно відноситься (А-Д).</strong></p>
+      <p><strong>24. У прямокутному трикутнику (\(\angle 𝐶 = 90^\circ\)) проведено медіану \(m_c\) та висоту \(h_c\) з вершини прямого кута. Гіпотенуза дорівнює \(20\) см, а \(\sin \angle A = 0,8\). Установіть відповідність (1-3) та (А-Д).</strong></p>
 
   <div class="matching">
     <div class="left-column">
       <h4>Твердження</h4>
-      <p>1. \(Кожна\) \(медіана\) \(трикутника\) \(є\) \(його\) \(висотою\)</p>
-      <p>2. \(Одна\) \(з\) \(висот\) \(трикутника\) \(є\) \(його\) \(бісектрисою\)</p>
-      <p>3. \(Одна\) \(з\) \(висот\) \(трикутника\) \(є\) \(його\) \(стороною\)</p>
+      <p>1. \(Довжина \;медіани\; m_c\)</p>
+      <p>2. \(Довжина \;висоти \;h_c\)</p>
+      <p>3. \(Відрізок\; між\; основами\; медіани\)<br>\(та\; висоти \;на \;гіпотенузі\)</p>
     </div>
 
     <div class="right-column">
       <h4>Трикутники</h4>
-      <p>А. \(рівнобедрений\) \(трикутни\)</p>
-      <p>Б. \(різносторонній\) \(трикутник\)</p>
-      <p>В. \(прямокутний\) \(трикутник\)</p>
-      <p>Г. \(рівносторонній\) \(трикутник\)</p>
-      <p>Д. \(тупокутний\) \(трикутник\)</p>
+      <p>А. &nbsp;&nbsp;&nbsp;\(2,8\) см</p>
+      <p>Б. &nbsp;&nbsp;&nbsp;\(9,6\) см</p>
+      <p>В. &nbsp;&nbsp;&nbsp;\(10\) см</p>
+      <p>Г. &nbsp;&nbsp;&nbsp;&nbsp;\(6,4\) см</p>
+      <p>Д. &nbsp;&nbsp;&nbsp;\(12\) см</p>
     </div>
   </div>
 
@@ -2247,11 +2320,10 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   
   <!-- Задание 25 -->
 <div class="question" id="q25">
- <p>25. За даними, вказаними на рисунку, установіть відповідність між відрізком (1-3) та його довжиною (А-Д), якщо \(KN\) – середня лінія трикутника, \(BL\) - бісектриса, \(BM\) - медіана, \(AM = 5\) см, \(BC= 9\) см, \(ML= 1\) см.</br>
+ <p>25. На рисунку зображено квадрат \(ABCD\), сторона квадрата дорівнює \(8\) см, \(AH=BH=BF=DF\), \(\sin \alpha = 0,6\). Установіть відповідність між відрізками (1-3) та їх довжинами (А-Д).</br>
 
   <div style="text-align: center; margin: 20px 0;">
-      <img 
-          src="https://i.postimg.cc/vTyCFM16/IMG-20251223-091424-608.png" 
+      <img      src="https://github.com/mathdrive/test3g/blob/main/IMG_20260105_184629_168-removebg-preview.png?raw=true" 
           alt="Геометрична задача 25" 
           style="max-width: 150%; height: auto; width: 350px;"
       >
@@ -2259,18 +2331,18 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   <div class="matching">
     <div class="left-column">
       <h4>Відрізки</h4>
-      <p>&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;\(KN\)</p>
-      <p>&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;\(AB\)</p>
-      <p>&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;\(BN\)</p>
+      <p>&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;\(AO\)</p>
+      <p>&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;\(AF\)</p>
+      <p>&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;\(EK\)</p>
     </div>
 
     <div class="right-column">
       <h4>Довжини</h4>
-      <p>&nbsp;&nbsp;&nbsp;А.&nbsp;&nbsp;&nbsp;\(13,5\) см</p>
-      <p>&nbsp;&nbsp;&nbsp;Б.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(4\) см</p>
-      <p>&nbsp;&nbsp;&nbsp;В.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(4,5\) см</p>
-      <p>&nbsp;&nbsp;&nbsp;Г.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(5\) см</p>
-      <p>&nbsp;&nbsp;&nbsp;Д.&nbsp;&nbsp;&nbsp;\(12,5\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;А.&nbsp;&nbsp;&nbsp;\(2\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;Б.&nbsp;&nbsp;&nbsp;\(2,4\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;В.&nbsp;&nbsp;&nbsp;\(4\sqrt{5}\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;Г.&nbsp;&nbsp;&nbsp;&nbsp;\(\sqrt{5}\) см</p>
+      <p>&nbsp;&nbsp;&nbsp;Д.&nbsp;&nbsp;&nbsp;\(2\sqrt{5}\) см</p>
     </div>
   </div>
 
@@ -2316,7 +2388,7 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
   
   <!-- Задание 26 -->
 <div class="question" id="q26">
-  <p><strong>26. Два кути трикутника дорівнюють \(58^\circ\) і \(76^\circ\). Знайдіть тупий кут, який утворюють висоти трикутника, що виходять із вершин цих кутів. </br><u><i>Відповідь надайте в градусах.</i></u></strong></p>
+  <p><strong>26. Сторони трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\) дорівнюють \(12\) см, \(16\) см та \(𝑞\) см. Вкажіть найбільше ціле значення параметра \(𝑞\) при якому трикутник <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\) буде прямокутним.</strong></p>
     
     <input type="text" class="open-answer" name="q26" data-correct="18"
 
@@ -2330,47 +2402,33 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 
 <!-- Задание 27 -->
 <div class="question" id="q27">
-  <p><strong>27. Бісектриса трикутника ділить протилежну сторону на відрізки \(4,2\) см та \(6,8\) см. Периметр трикутника дорівнює \(38,5\) см. Знайдіть меншу сторону трикутника.</strong></p>
+  <p><strong>27. У прямокутному трикутнику <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\), \(\angle 𝐶 = 90^\circ\), відстані від середини медіани \(𝐵𝑀\) до катетів \(𝐴𝐶\) і \(𝐵𝐶\) дорівнюють \(5\) см і \(6\) см відповідно. Визначте радіус кола, описаного навколо трикутника <span style="font-size: 0.5em;">\(\triangle\)</span>\(ABC\).</strong></p>
   <input type="text" class="open-answer" name="q27" data-correct="18"
+
        placeholder="Введіть свою відповідь">
+
   <button type="button" class="check-btn">Підтвердити вибір</button>
+
   <p class="result"></p>
+
 </div>
 
 <!-- Задание 28 -->
 <div class="question" id="q28">
-   <div style="display: flex; align-items: flex-start; gap: 2px; margin-bottom: 20px;">
-    
-    <div style="flex: 1; min-width: 55%; margin-right:10px"> 
-      <p><strong>28. За данними вказаними на рисунку знайдіть значення виразу \(x-y\).</strong></p>
-    </div>
-    
-    <div style="flex: 0 0 auto; margin-left: auto;"> 
-      <img 
-          src="https://i.postimg.cc/5N2PdS5B/IMG-20251223-113415-297-(1).png" 
-          alt="Геометрична задача: 28" 
-          style="max-width: 62%; height: auto; width: 250px; display: block;" 
-      >
-    </div>
-</div>
-  
-  <input type="text" class="open-answer" name="q28" data-correct="18" placeholder="Введіть свою відповідь">
-  
+      <p><strong>28. Для вимірювання висоти скелі, що стоїть вертикально на рівнині, геодезист встановив теодоліт на відстані \(40\) м від її основи. Кут підйому на вершину скелі, виміряний від поверхні землі, становить \(60^\circ\). Обчисліть висоту скелі (у метрах). У відповідь запишіть значення, округлене до найближчого цілого числа, вважаючи, що \(\sqrt{3} \approx 1,73\).</strong></p>
+   <input type="text" class="open-answer" name="q28" data-correct="18"
+
+       placeholder="Введіть свою відповідь">
+
   <button type="button" class="check-btn">Підтвердити вибір</button>
+
   <p class="result"></p>
+
 </div>
 
 <!-- Задание 29 -->
 <div class="question" id="q29">
-  <p>29. Використовуючи дані на рисунку, визначте максимальну висоту тумбочки, яку можна розмістити в ніші під сходами. Відомо, що ширина тумбочки становить \(60\) см, та вона встановлюється впритул до правої стіни, а її верхній край торкається несучої конструкції сходів.</br>
-
-  <div style="text-align: center; margin: 20px 0;">
-      <img 
-          src="https://i.postimg.cc/HkR8zX92/IMG-20251223-115016-107.png" 
-          alt="Геометрична задача 29" 
-          style="max-width: 150%; height: auto; width: 350px;"
-      >
-  </div>
+  <p>29. Висота прямокутного трикутника, проведена до гіпотенузи, ділить її на два відрізки, довжини яких відносяться як \(1 : 9\). Знайдіть довжину цієї висоти (у см), якщо площа трикутника дорівнює \(135\) см\(^2\).</br>
   
   <input type="text" class="open-answer" name="q29" data-correct="0" placeholder="Введіть свою відповідь">
   <button type="button" class="check-btn">Підтвердити вибір</button>
@@ -2379,7 +2437,7 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 
 <!-- Задание 30 -->
 <div class="question" id="q30">
-  <p><strong>30. Бісектриса трикутника ділить сторону на відрізки, різниця довжин яких дорівнює \(3\) см. Знайдіть периметр трикутника, якщо дві інші сторони дорівнюють \(4\) і \(10\) см.</strong></p>
+  <p><strong>30. У прямокутний трикутник вписано коло, точка дотику якого ділить один із катетів на відрізки довжиною \(3\) см та \(5\) см (рахуючи від вершини прямого кута). Знайдіть периметр цього трикутника (у см).</strong></p>
   
   <input type="text" class="open-answer" name="q30" data-correct="2" placeholder="Введіть свою відповідь">
   <button type="button" class="check-btn">Підтвердити вибір</button>
@@ -2445,6 +2503,7 @@ III. \(\angle A  + \angle C \gt \angle BC\).</p>
 <footer>
   <h6>Автор: Олена Томашевська</h6>
 </footer>
+          
           <script>
           // === СТАРТОВАЯ СТРАНИЦА ===
 
@@ -2478,25 +2537,25 @@ questionNav.style.display = "none";
 
 const correctAnswers = {
 
-  "q1": "В", "q2": "В", "q3": "Г", "q4": "В", "q5": "В",
+  "q1": "Г", "q2": "А", "q3": "В", "q4": "В", "q5": "Д",
 
-  "q6": "А", "q7": "Д", "q8": "Г", "q9": "Д", "q10": "Б",
+  "q6": "А", "q7": "А", "q8": "Г", "q9": "Д", "q10": "Д",
 
-  "q11": "Б", "q12": "Д", "q13": "Г", "q14": "В", "q15": "Д",
+  "q11": "Г", "q12": "Б", "q13": "В", "q14": "Г", "q15": "В",
 
-  "q16": "Б", "q17": "В", "q18": "Г", "q19": "А", "q20": "Б",
+  "q16": "Г", "q17": "А", "q18": "Г", "q19": "В", "q20": "Г",
 
-  "q21": { "1": "В", "2": "Д", "3": "А" },
+  "q21": { "1": "Г", "2": "Б", "3": "А" },
 
-  "q22": { "1": "В", "2": "А", "3": "Б" },
+  "q22": { "1": "А", "2": "Г", "3": "В" },
 
-  "q23": { "1": "А", "2": "Д", "3": "Б" },
+  "q23": { "1": "А", "2": "В", "3": "Д" },
 
-  "q24": { "1": "Г", "2": "А", "3": "В" },
+  "q24": { "1": "В", "2": "Б", "3": "А" },
 
-  "q25": { "1": "Г", "2": "А", "3": "В" },
+  "q25": { "1": "Б", "2": "В", "3": "А" },
 
-  "q26": "134", "q27": "10,5", "q28": "6", "q29": "49,2", "q30": "21"
+  "q26": "20", "q27": "13", "q28": "69", "q29": "9", "q30": "40"
 
 };
 
